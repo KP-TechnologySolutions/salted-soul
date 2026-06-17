@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
-import Image from 'next/image'
+import SizeChart from '@/components/size/SizeChart'
 
 export const metadata: Metadata = {
   title: 'Size Guide | Salted Soul',
-  description: 'Find your perfect fit with our comprehensive size guide for Christian apparel. Detailed measurements for all our shirts and accessories.',
+  description: 'Find your perfect fit with our interactive size guide for Christian apparel. Detailed measurements for all our shirts and accessories.',
 }
 
 export default function SizeGuidePage() {
@@ -13,128 +13,20 @@ export default function SizeGuidePage() {
       <section className="bg-gradient-sand py-20">
         <div className="container-wide text-center">
           <h1 className="heading-primary mb-6">
-            SIZE GUIDE
+            Size guide
           </h1>
           <p className="text-xl text-charcoal-600 max-w-2xl mx-auto">
-            Find your perfect fit for sharing your faith in comfort and style. 
+            Find your perfect fit for sharing your faith in comfort and style.
             Our apparel runs true to size with a comfortable, relaxed fit.
           </p>
         </div>
       </section>
 
-      {/* Size Charts */}
+      {/* Interactive Size Charts */}
       <section className="section-padding">
         <div className="container-wide">
-          {/* T-Shirts */}
           <div className="mb-16">
-            <h2 className="heading-secondary mb-8">T-Shirts & Tank Tops</h2>
-            
-            {/* Men's T-Shirts */}
-            <div className="mb-12">
-              <h3 className="text-xl font-semibold text-charcoal-900 mb-6">Men's Sizing</h3>
-              <div className="overflow-x-auto bg-white border rounded-lg shadow-sm">
-                <table className="w-full">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Size</th>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Chest Width</th>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Body Length</th>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Shoulder Width</th>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Sleeve Length</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      { size: 'XS', chest: '16.5"', length: '27"', shoulder: '15.5"', sleeve: '8"' },
-                      { size: 'S', chest: '18"', length: '28"', shoulder: '16"', sleeve: '8.25"' },
-                      { size: 'M', chest: '20"', length: '29"', shoulder: '17"', sleeve: '8.5"' },
-                      { size: 'L', chest: '22"', length: '30"', shoulder: '18"', sleeve: '8.75"' },
-                      { size: 'XL', chest: '24"', length: '31"', shoulder: '19"', sleeve: '9"' },
-                      { size: '2XL', chest: '26"', length: '32"', shoulder: '20"', sleeve: '9.25"' },
-                      { size: '3XL', chest: '28"', length: '33"', shoulder: '21"', sleeve: '9.5"' },
-                    ].map((row, index) => (
-                      <tr key={row.size} className={index % 2 === 0 ? 'bg-gray-25' : 'bg-white'}>
-                        <td className="px-6 py-4 font-medium text-charcoal-900">{row.size}</td>
-                        <td className="px-6 py-4 text-charcoal-600">{row.chest}</td>
-                        <td className="px-6 py-4 text-charcoal-600">{row.length}</td>
-                        <td className="px-6 py-4 text-charcoal-600">{row.shoulder}</td>
-                        <td className="px-6 py-4 text-charcoal-600">{row.sleeve}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            {/* Women's T-Shirts */}
-            <div className="mb-12">
-              <h3 className="text-xl font-semibold text-charcoal-900 mb-6">Women's Sizing</h3>
-              <div className="overflow-x-auto bg-white border rounded-lg shadow-sm">
-                <table className="w-full">
-                  <thead className="bg-gray-50">
-                    <tr>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Size</th>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Chest Width</th>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Body Length</th>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Shoulder Width</th>
-                      <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Sleeve Length</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {[
-                      { size: 'XS', chest: '15.5"', length: '25.5"', shoulder: '14"', sleeve: '7"' },
-                      { size: 'S', chest: '16.5"', length: '26"', shoulder: '14.5"', sleeve: '7.25"' },
-                      { size: 'M', chest: '17.5"', length: '26.5"', shoulder: '15"', sleeve: '7.5"' },
-                      { size: 'L', chest: '19"', length: '27"', shoulder: '15.5"', sleeve: '7.75"' },
-                      { size: 'XL', chest: '20.5"', length: '27.5"', shoulder: '16"', sleeve: '8"' },
-                      { size: '2XL', chest: '22"', length: '28"', shoulder: '16.5"', sleeve: '8.25"' },
-                    ].map((row, index) => (
-                      <tr key={row.size} className={index % 2 === 0 ? 'bg-gray-25' : 'bg-white'}>
-                        <td className="px-6 py-4 font-medium text-charcoal-900">{row.size}</td>
-                        <td className="px-6 py-4 text-charcoal-600">{row.chest}</td>
-                        <td className="px-6 py-4 text-charcoal-600">{row.length}</td>
-                        <td className="px-6 py-4 text-charcoal-600">{row.shoulder}</td>
-                        <td className="px-6 py-4 text-charcoal-600">{row.sleeve}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-          {/* Hoodies & Sweatshirts */}
-          <div className="mb-16">
-            <h2 className="heading-secondary mb-8">Hoodies & Sweatshirts</h2>
-            <div className="overflow-x-auto bg-white border rounded-lg shadow-sm">
-              <table className="w-full">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Size</th>
-                    <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Chest Width</th>
-                    <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Body Length</th>
-                    <th className="px-6 py-4 text-left font-semibold text-charcoal-900">Sleeve Length</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { size: 'S', chest: '20"', length: '27"', sleeve: '24"' },
-                    { size: 'M', chest: '22"', length: '28"', sleeve: '25"' },
-                    { size: 'L', chest: '24"', length: '29"', sleeve: '26"' },
-                    { size: 'XL', chest: '26"', length: '30"', sleeve: '27"' },
-                    { size: '2XL', chest: '28"', length: '31"', sleeve: '28"' },
-                    { size: '3XL', chest: '30"', length: '32"', sleeve: '29"' },
-                  ].map((row, index) => (
-                    <tr key={row.size} className={index % 2 === 0 ? 'bg-gray-25' : 'bg-white'}>
-                      <td className="px-6 py-4 font-medium text-charcoal-900">{row.size}</td>
-                      <td className="px-6 py-4 text-charcoal-600">{row.chest}</td>
-                      <td className="px-6 py-4 text-charcoal-600">{row.length}</td>
-                      <td className="px-6 py-4 text-charcoal-600">{row.sleeve}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <SizeChart />
           </div>
 
           {/* How to Measure */}
@@ -223,13 +115,13 @@ export default function SizeGuidePage() {
           </div>
 
           {/* Size Exchange Policy */}
-          <div className="bg-gray-50 rounded-2xl p-8">
+          <div className="bg-surface rounded-2xl p-8">
             <h2 className="heading-secondary mb-6">Size Exchange Promise</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="font-semibold text-charcoal-900 mb-3">Free Size Exchanges</h3>
                 <p className="text-charcoal-600 mb-4">
-                  Ordered the wrong size? No problem! We offer free size exchanges within 30 days 
+                  Ordered the wrong size? No problem! We offer free size exchanges within 30 days
                   for unworn items with tags attached.
                 </p>
                 <ul className="text-sm text-charcoal-600 space-y-1">
@@ -242,11 +134,11 @@ export default function SizeGuidePage() {
               <div>
                 <h3 className="font-semibold text-charcoal-900 mb-3">Still Not Sure?</h3>
                 <p className="text-charcoal-600 mb-4">
-                  Contact our team for personalized sizing advice. We're here to help you 
+                  Contact our team for personalized sizing advice. We're here to help you
                   find the perfect fit for sharing your faith.
                 </p>
-                <a 
-                  href="/contact" 
+                <a
+                  href="/contact"
                   className="inline-flex items-center text-ocean-600 hover:text-ocean-700 font-medium"
                 >
                   Get Sizing Help
