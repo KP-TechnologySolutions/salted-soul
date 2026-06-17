@@ -1,9 +1,10 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useCart } from '@/lib/cart-context'
+import { createCart, isShopifyConfigured } from '@/lib/shopify/client'
 import Button from '@/components/ui/Button'
 import PriceDisplay from '@/components/ui/PriceDisplay'
 
@@ -14,6 +15,34 @@ interface CartDrawerProps {
 
 const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
   const { state, updateQuantity, removeItem } = useCart()
+  const [checkingOut, setCheckingOut] = useState(false)
+  const [checkoutError, setCheckoutError] = useState<string | null>(null)
+
+  const handleCheckout = async () => {
+    setCheckoutError(null)
+
+    // Until the Shopify store + Storefront token are configured (see
+    // docs/SHOPIFY-SETUP.md) there is no real checkout to hand off to.
+    if (!isShopifyConfigured()) {
+      setCheckoutError('Checkout is not connected yet — Shopify store setup pending.')
+      return
+    }
+
+    setCheckingOut(true)
+    try {
+      const cart = await createCart(
+        state.items.map((item) => ({
+          merchandiseId: item.variantId, // Shopify variant GID once catalog is live
+          quantity: item.quantity,
+        }))
+      )
+      // Hand the buyer off to Shopify-hosted checkout.
+      window.location.href = cart.checkoutUrl
+    } catch (err) {
+      setCheckoutError(err instanceof Error ? err.message : 'Could not start checkout.')
+      setCheckingOut(false)
+    }
+  }
 
   if (!isOpen) return null
 
@@ -178,13 +207,17 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
 
               {/* Action Buttons */}
               <div className="space-y-3">
-                <Button 
-                  variant="primary" 
+                {checkoutError && (
+                  <p className="text-sm text-red-600 text-center">{checkoutError}</p>
+                )}
+                <Button
+                  variant="primary"
                   size="large"
                   className="w-full"
-                  onClick={onClose}
+                  onClick={handleCheckout}
+                  disabled={checkingOut}
                 >
-                  Checkout
+                  {checkingOut ? 'Starting checkout…' : 'Checkout'}
                 </Button>
                 <Button 
                   variant="secondary" 

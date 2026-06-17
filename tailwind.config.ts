@@ -10,18 +10,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Premium Surf Color Palette
+        // Coastal teal — single brand accent (matches globals.css tokens)
         ocean: {
-          50: '#f0f9ff',
-          100: '#e0f2fe', 
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9', // Primary
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
+          50: '#f1faf9',
+          100: '#d8efed',
+          200: '#b0dfdb',
+          300: '#7fc8c3',
+          400: '#49a8a3',
+          500: '#2b7a78', // Primary
+          600: '#226462',
+          700: '#1b504f',
+          800: '#163f3f',
+          900: '#0f3d3e',
         },
         sand: {
           50: '#fefdf8',
@@ -35,17 +35,18 @@ const config: Config = {
           800: '#9a7b4f',
           900: '#7d6441',
         },
+        // Sunset coral — warm secondary, desaturated to sit beside the teal
         coral: {
-          50: '#fef2f2',
-          100: '#fee2e2',
-          200: '#fecaca',
-          300: '#fca5a5',
-          400: '#f87171',
-          500: '#ff6b47', // Accent
-          600: '#ef4444',
-          700: '#dc2626',
-          800: '#b91c1c',
-          900: '#991b1b',
+          50: '#fef4f0',
+          100: '#fbe3d9',
+          200: '#f6c6b4',
+          300: '#efa183',
+          400: '#e7825f',
+          500: '#d96b47', // Accent
+          600: '#bf5638',
+          700: '#9c452d',
+          800: '#7c3826',
+          900: '#652f21',
         },
         charcoal: {
           50: '#f8fafc',
@@ -61,8 +62,8 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],

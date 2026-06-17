@@ -1,8 +1,24 @@
 import type { Metadata } from 'next'
+import { Fraunces, Outfit } from 'next/font/google'
 import './globals.css'
 import SimpleHeader from '@/components/layout/SimpleHeader'
 import Footer from '@/components/layout/Footer'
 import { CartProvider } from '@/lib/cart-context'
+
+// Display serif — warm, editorial, coastal character for headlines.
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
+  axes: ['opsz', 'SOFT'],
+})
+
+// Body/UI sans — clean and modern.
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -82,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${fraunces.variable} ${outfit.variable}`}>
       <body className="antialiased">
         {/* Skip to main content link for accessibility */}
         <a 
@@ -98,8 +114,8 @@ export default function RootLayout({
           <main id="main-content" className="min-h-screen">
             {children}
           </main>
-          
-          {/* <Footer /> */}
+
+          <Footer />
         </CartProvider>
 
         {/* Schema.org structured data */}
