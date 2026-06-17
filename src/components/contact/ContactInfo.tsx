@@ -19,11 +19,11 @@ const ContactInfo: React.FC = () => {
             <p className="text-charcoal-600 mb-2">
               We typically respond within 24 hours
             </p>
-            <Link 
-              href="mailto:hello@saltedsoul.com"
+            <Link
+              href="mailto:mark@saltedsoulsc.com"
               className="text-ocean-600 hover:text-ocean-700 font-medium"
             >
-              hello@saltedsoul.com
+              mark@saltedsoulsc.com
             </Link>
           </div>
         </div>
@@ -127,10 +127,10 @@ const ContactInfo: React.FC = () => {
           We offer special pricing and custom design services for Kingdom work.
         </p>
         <Link
-          href="mailto:ministry@saltedsoul.com"
+          href="mailto:mark@saltedsoulsc.com"
           className="text-yellow-700 hover:text-yellow-800 font-medium"
         >
-          ministry@saltedsoul.com
+          mark@saltedsoulsc.com
         </Link>
       </div>
     </div>

@@ -46,14 +46,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://saltedsoul.com'), // Replace with actual domain
+  metadataBase: new URL('https://saltedsoulsc.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://saltedsoul.com',
+    url: 'https://saltedsoulsc.com',
     siteName: 'Salted Soul',
     title: 'Salted Soul - Christian Apparel with Soul & Salt',
     description: 'Christian apparel with authentic surf soul. Bold faith meets coastal style in designs that spark real conversations about Jesus.',
@@ -127,13 +127,13 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'Salted Soul',
               description: 'Christian apparel with authentic surf soul',
-              url: 'https://saltedsoul.com',
-              logo: 'https://saltedsoul.com/salted_soul_logo.png',
+              url: 'https://saltedsoulsc.com',
+              logo: 'https://saltedsoulsc.com/salted_soul_logo.png',
               contactPoint: {
                 '@type': 'ContactPoint',
                 telephone: '+1-XXX-XXX-XXXX', // Add actual phone
                 contactType: 'Customer Service',
-                email: 'hello@saltedsoul.com', // Add actual email
+                email: 'mark@saltedsoulsc.com',
               },
               address: {
                 '@type': 'PostalAddress',

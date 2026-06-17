@@ -207,6 +207,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Handcrafted — behind the scenes */}
+      <section className="section" style={{ backgroundColor: 'var(--surface)' }}>
+        <div className="container-wide">
+          <Reveal className="product-showcase">
+            <div className="craft-video">
+              <video
+                src="/videos/hat-making.mp4"
+                poster="/videos/hat-making-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Salted Soul hats being made by hand in Charleston"
+              />
+              <span className="craft-badge">Behind the scenes</span>
+            </div>
+            <div className="product-info">
+              <h2>Handcrafted in Charleston</h2>
+              <p>
+                Every hat is made by hand, one at a time — no mass production, no shortcuts.
+                What you wear started on a workbench in the Lowcountry, shaped with the same
+                care and intention we put into every design.
+              </p>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                <Link href="/shop/hats" className="btn btn-primary">Shop the Hats</Link>
+                <Link href="/story" className="btn btn-outline" style={{ color: 'var(--ocean)', borderColor: 'var(--ocean)' }}>Our Story</Link>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Lifestyle Gallery */}
       <section className="section mission-section">
         <div className="container-wide">
