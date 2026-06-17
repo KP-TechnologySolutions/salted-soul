@@ -31,7 +31,7 @@ export default function CollectionsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-50 to-teal-50 py-16">
+      <div className="bg-gradient-sand py-16">
         <div className="container-wide text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our Collections
@@ -58,7 +58,7 @@ export default function CollectionsPage() {
                 />
                 {collection.featured && (
                   <div className="absolute top-4 left-4">
-                    <span className="bg-blue-600 text-white text-sm font-medium px-3 py-1 rounded-full">
+                    <span className="bg-ocean-600 text-white text-sm font-medium px-3 py-1 rounded-full">
                       Featured
                     </span>
                   </div>

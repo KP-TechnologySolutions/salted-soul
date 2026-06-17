@@ -47,7 +47,7 @@ const Header: React.FC = () => {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3">
               <Image
-                src="/logo-original.png"
+                src="/logo-original.webp"
                 alt="Salted Soul"
                 width={64}
                 height={64}

@@ -63,12 +63,12 @@ export default function HomePage() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="hero-section" style={{ backgroundImage: 'linear-gradient(rgba(11,42,44,0.45), rgba(11,42,44,0.55)), url("/headersalted.png")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+      <section className="hero-section" style={{ backgroundImage: 'radial-gradient(circle at 50% 42%, rgba(11,42,44,0.30), rgba(11,42,44,0.62)), url("/saltedsoulhero.webp")', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
         <div className="container-wide">
           <Reveal className="hero-content">
             <div className="hero-logo-main">
               <Image
-                src="/salted_soul_logo.png"
+                src="/salted_soul_logo.webp"
                 alt="Salted Soul"
                 width={400}
                 height={400}

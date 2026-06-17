@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/hero-bg.png"
+          src="/hero-bg.webp"
           alt="Salted Soul coastal vintage design"
           fill
           className="object-cover object-center"

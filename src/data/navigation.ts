@@ -161,9 +161,6 @@ export const footerNavigation = {
   ],
 }
 
-export const socialLinks = [
-  { name: 'Instagram', href: 'https://instagram.com/saltedsoul', icon: 'instagram' },
-  { name: 'Facebook', href: 'https://facebook.com/saltedsoul', icon: 'facebook' },
-  { name: 'YouTube', href: 'https://youtube.com/saltedsoul', icon: 'youtube' },
-  { name: 'TikTok', href: 'https://tiktok.com/@saltedsoul', icon: 'tiktok' },
-]
+// Intentionally empty until real Salted Soul accounts are confirmed.
+// Add real handles here and they render automatically in the footer.
+export const socialLinks: { name: string; href: string; icon: string }[] = []

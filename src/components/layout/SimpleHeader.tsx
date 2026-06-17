@@ -9,7 +9,7 @@ export default function SimpleHeader() {
         <Link href="/" className="logo">
           <div className="logo-image">
             <Image
-              src="/salted_soul_logo.png"
+              src="/salted_soul_logo.webp"
               alt="Salted Soul"
               width={60}
               height={60}

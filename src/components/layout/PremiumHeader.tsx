@@ -80,7 +80,7 @@ const PremiumHeader: React.FC = () => {
               <Link href="/" className="flex items-center space-x-3 group">
                 <div className="relative">
                   <Image
-                    src="/logo-original.png"
+                    src="/logo-original.webp"
                     alt="Salted Soul"
                     width={60}
                     height={60}

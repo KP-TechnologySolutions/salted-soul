@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
               {/* Logo */}
               <Link href="/" className="flex items-center space-x-3 mb-6">
                 <Image
-                  src="/logo-original.png"
+                  src="/logo-original.webp"
                   alt="Salted Soul"
                   width={48}
                   height={48}

@@ -196,25 +196,25 @@ export default function SizeGuidePage() {
               <h2 className="heading-secondary mb-8">Fit Guidelines</h2>
               <div className="space-y-6">
                 <div className="bg-ocean-50 rounded-xl p-6 border border-ocean-100">
-                  <h3 className="font-semibold text-ocean-800 mb-3">🎯 True to Size</h3>
+                  <h3 className="font-semibold text-ocean-800 mb-3">True to Size</h3>
                   <p className="text-ocean-700">
-                    Our apparel runs true to size. If you're between sizes, we recommend sizing up 
+                    Our apparel runs true to size. If you're between sizes, we recommend sizing up
                     for a more relaxed fit.
                   </p>
                 </div>
 
-                <div className="bg-green-50 rounded-xl p-6 border border-green-100">
-                  <h3 className="font-semibold text-green-800 mb-3">✝️ Ministry Fit</h3>
-                  <p className="text-green-700">
-                    Our shirts are designed for active ministry - comfortable enough for service 
+                <div className="bg-sand-50 rounded-xl p-6 border border-sand-200">
+                  <h3 className="font-semibold text-charcoal-900 mb-3">Ministry Fit</h3>
+                  <p className="text-charcoal-700">
+                    Our shirts are designed for active ministry - comfortable enough for service
                     projects, stylish enough for coffee shop conversations.
                   </p>
                 </div>
 
-                <div className="bg-yellow-50 rounded-xl p-6 border border-yellow-100">
-                  <h3 className="font-semibold text-yellow-800 mb-3">🏄‍♂️ Coastal Comfort</h3>
-                  <p className="text-yellow-700">
-                    Relaxed fit inspired by beach culture - not too tight, not too loose. 
+                <div className="bg-ocean-50 rounded-xl p-6 border border-ocean-100">
+                  <h3 className="font-semibold text-ocean-800 mb-3">Coastal Comfort</h3>
+                  <p className="text-ocean-700">
+                    Relaxed fit inspired by beach culture - not too tight, not too loose.
                     Perfect for Charleston humidity and coastal adventures.
                   </p>
                 </div>

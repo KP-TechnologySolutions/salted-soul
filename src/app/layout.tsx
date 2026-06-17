@@ -85,11 +85,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code', // Add actual verification codes
-    // yandex: 'your-yandex-verification-code',
-    // yahoo: 'your-yahoo-verification-code',
-  },
 }
 
 export default function RootLayout({
@@ -128,10 +123,9 @@ export default function RootLayout({
               name: 'Salted Soul',
               description: 'Christian apparel with authentic surf soul',
               url: 'https://saltedsoulsc.com',
-              logo: 'https://saltedsoulsc.com/salted_soul_logo.png',
+              logo: 'https://saltedsoulsc.com/salted_soul_logo.webp',
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+1-XXX-XXX-XXXX', // Add actual phone
                 contactType: 'Customer Service',
                 email: 'mark@saltedsoulsc.com',
               },
@@ -141,12 +135,6 @@ export default function RootLayout({
                 addressRegion: 'SC',
                 addressCountry: 'US',
               },
-              sameAs: [
-                'https://instagram.com/saltedsoul',
-                'https://facebook.com/saltedsoul',
-                'https://youtube.com/saltedsoul',
-                'https://tiktok.com/@saltedsoul',
-              ],
             }),
           }}
         />
