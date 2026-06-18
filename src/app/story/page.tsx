@@ -60,8 +60,8 @@ export default function StoryPage() {
             </div>
             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/headersalted.png"
-                alt="Folly Beach at sunset where the vision began"
+                src="/mark-beginning.webp"
+                alt="Mark in Salted Soul gear watching the sunrise over the Folly Beach pier"
                 fill
                 className="object-cover object-center"
               />
