@@ -155,6 +155,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* How it works */}
+      <section className="section">
+        <div className="container-wide">
+          <Reveal className="section-header">
+            <h2 className="section-title">Ordering is easy</h2>
+            <p className="section-subtitle">From the lineup to your door in four simple steps.</p>
+          </Reveal>
+          <Reveal>
+            <div className="howto-video">
+              <video
+                src="/videos/how-to-order.mp4"
+                poster="/videos/how-to-order-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="How to order from Salted Soul: find your design, add to cart, secure checkout, we ship it"
+              />
+            </div>
+          </Reveal>
+          <Reveal className="howto-cta">
+            <Link href="/shop" className="btn btn-primary">Start shopping</Link>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Customer Reviews */}
       <section className="section">
         <div className="container-wide">
