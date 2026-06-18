@@ -90,9 +90,10 @@ export default function StoryPage() {
               </h2>
               <div className="space-y-6 text-lg text-charcoal-600 leading-relaxed">
                 <p>
-                  Born and raised in the Lowcountry, Mark has always been drawn to the intersection 
-                  of faith and culture. A lifelong believer with a heart for evangelism, he saw 
-                  how natural conversations flowed around shared interests and common ground.
+                  A San Diego, California native, Mark traded one coast for another when he moved to
+                  Charleston about five years ago. A lifelong believer with a heart for evangelism, he has
+                  always been drawn to the intersection of faith and culture, and to how naturally
+                  conversations flow around shared interests and common ground.
                 </p>
                 <p>
                   "I wanted to create apparel that doesn't just look good, but opens doors for 
