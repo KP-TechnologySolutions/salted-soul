@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image'
 import ProductGrid from '@/components/product/ProductGrid'
 import { products } from '@/data/products'
 
@@ -27,13 +28,37 @@ export default function HatsPage() {
         </div>
       </section>
 
+      {/* The lineup feature */}
+      <section className="section-padding-sm">
+        <div className="container-wide grid lg:grid-cols-2 gap-12 items-center">
+          <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-[var(--shadow-lg)]">
+            <Image
+              src="/hats-lineup.webp"
+              alt="The Salted Soul hat lineup in five colorways lined up on a stone wall"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 1024px) 100vw, 28rem"
+            />
+          </div>
+          <div>
+            <h2 className="heading-secondary mb-4">Five colorways, one message</h2>
+            <p className="text-charcoal-600 leading-relaxed mb-6 max-w-[58ch]">
+              From navy to coral to sand, every Salted Soul cap carries the same circle logo and the same
+              heart: faith you can wear anywhere the day takes you. Structured trucker and snapback fits, built
+              for sun, salt, and real conversations.
+            </p>
+            <a href="#hats" className="btn btn-primary">Shop the lineup</a>
+          </div>
+        </div>
+      </section>
+
       {/* Products */}
-      <section className="section-padding">
+      <section id="hats" className="section-padding scroll-mt-24">
         <ProductGrid products={hatProducts} />
       </section>
 
       {/* Hat Care Guide */}
-      <section className="section-padding-sm bg-gray-50">
+      <section className="section-padding-sm bg-surface">
         <div className="container-wide">
           <div className="text-center mb-12">
             <h2 className="heading-secondary mb-4">Hat Care Guide</h2>
@@ -89,7 +114,7 @@ export default function HatsPage() {
             "Therefore, as God's chosen people, holy and dearly loved, clothe yourselves 
             with compassion, kindness, humility, gentleness and patience."
           </blockquote>
-          <cite className="text-lg font-semibold text-yellow-300">— Colossians 3:12</cite>
+          <cite className="text-lg font-semibold text-sand-300">— Colossians 3:12</cite>
           <p className="text-lg opacity-90 mt-4">
             Let your hat be a crown of faith, worn with humility and love.
           </p>
