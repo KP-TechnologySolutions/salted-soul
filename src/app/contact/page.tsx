@@ -14,7 +14,7 @@ export default function ContactPage() {
       <section className="bg-gradient-sand py-20">
         <div className="container-wide text-center">
           <h1 className="heading-primary mb-6">
-            GET IN TOUCH
+            Get in touch
           </h1>
           <p className="text-xl text-charcoal-600 max-w-2xl mx-auto">
             Have questions about our Christian apparel? Want to share your faith story? 
