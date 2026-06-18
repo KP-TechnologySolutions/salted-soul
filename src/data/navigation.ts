@@ -133,6 +133,7 @@ export const mainNavigation: { name: string; href: string; megaMenu?: MegaMenuDa
 export const footerNavigation = {
   shop: [
     { name: 'All Products', href: '/shop' },
+    { name: 'Hats', href: '/shop/hats' },
     { name: 'New Arrivals', href: '/shop/new-arrivals' },
     { name: 'Best Sellers', href: '/shop/best-sellers' },
     { name: 'Sale', href: '/shop/sale' },

@@ -27,6 +27,9 @@ export default function SimpleHeader() {
           <Link href="/shop" className="nav-link">
             Shop All
           </Link>
+          <Link href="/shop/hats" className="nav-link">
+            Hats
+          </Link>
           <Link href="/collections" className="nav-link">
             Collections
           </Link>
