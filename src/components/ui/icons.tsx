@@ -14,6 +14,7 @@ const base = (props: IconProps) => ({
   strokeWidth: 1.5,
   strokeLinecap: 'round' as const,
   strokeLinejoin: 'round' as const,
+  'aria-hidden': true, // decorative; always paired with visible text or a labeled container
   ...props,
 })
 

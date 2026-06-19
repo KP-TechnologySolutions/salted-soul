@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/icons'
 
 const Stars = ({ count = 5 }: { count?: number }) => (
-  <div className="review-stars" aria-label={`${count} out of 5 stars`}>
+  <div className="review-stars" role="img" aria-label={`${count} out of 5 stars`}>
     {Array.from({ length: count }).map((_, i) => (
       <StarSolid key={i} width={18} height={18} />
     ))}
@@ -171,6 +171,7 @@ export default function HomePage() {
                 muted
                 loop
                 playsInline
+                controls
                 aria-label="How to order from Salted Soul: find your design, add to cart, secure checkout, we ship it"
               />
             </div>
@@ -245,6 +246,7 @@ export default function HomePage() {
                 muted
                 loop
                 playsInline
+                controls
                 aria-label="Salted Soul hats being made by hand in Charleston"
               />
               <span className="craft-badge">Behind the scenes</span>

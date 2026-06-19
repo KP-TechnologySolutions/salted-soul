@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
                   <li key={item.name}>
                     <Link 
                       href={item.href} 
-                      className="text-gray-300 hover:text-white transition-colors"
+                      className="inline-block py-1 text-gray-300 hover:text-white transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -90,7 +90,7 @@ const Footer: React.FC = () => {
                   <li key={item.name}>
                     <Link 
                       href={item.href} 
-                      className="text-gray-300 hover:text-white transition-colors"
+                      className="inline-block py-1 text-gray-300 hover:text-white transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
                   <li key={item.name}>
                     <Link 
                       href={item.href} 
-                      className="text-gray-300 hover:text-white transition-colors"
+                      className="inline-block py-1 text-gray-300 hover:text-white transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p className="text-gray-400 text-center lg:text-left">
-              © 2024 Salted Soul. All rights reserved. Sharing Jesus with authentic style.
+              © 2026 Salted Soul. All rights reserved. Sharing Jesus with authentic style.
             </p>
 
             {/* Legal Links */}
@@ -131,7 +131,7 @@ const Footer: React.FC = () => {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-400 hover:text-white transition-colors text-sm"
+                  className="inline-block py-1 text-gray-400 hover:text-white transition-colors text-sm"
                 >
                   {item.name}
                 </Link>

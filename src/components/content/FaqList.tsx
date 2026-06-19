@@ -48,6 +48,7 @@ export default function FaqList() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search questions"
+          aria-label="Search frequently asked questions"
           className="w-full pl-12 pr-4 py-3.5 rounded-xl border border-line bg-white text-charcoal-900 placeholder:text-charcoal-400 focus:outline-none focus:ring-2 focus:ring-ocean-500"
         />
       </div>
