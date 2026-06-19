@@ -62,8 +62,8 @@ export default function StoryPage() {
 
             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/lifestyle/charleston-lifestyle-2.png"
-                alt="Coastal South Carolina, the inspiration behind Salted Soul"
+                src="/mark-beginning.webp"
+                alt="Mark in Salted Soul gear at the sunset pier"
                 fill
                 className="object-cover object-center"
               />
@@ -78,10 +78,9 @@ export default function StoryPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
               <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                {/* PLACEHOLDER — replace with the AI photo of Mark & Carol */}
                 <Image
-                  src="/lifestyle/chatgpt-charleston-1.png"
-                  alt="Mark and Carol, the husband-and-wife team behind Salted Soul"
+                  src="/mark-carol.webp"
+                  alt="Mark and Carol watching the sunset on a South Carolina beach"
                   fill
                   className="object-cover object-center"
                 />
