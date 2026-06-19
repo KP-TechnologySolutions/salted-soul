@@ -899,18 +899,33 @@ header {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  /* Let the hero grow with its content instead of clipping inside 100dvh */
+  /* Immersive full-screen hero that clears the sticky header and never clips
+     (min-height grows with content; padding-top pushes content below header). */
   .hero-section {
-    min-height: auto;
-    padding: 7rem 0 3.5rem;
+    min-height: 100svh;
+    padding: 7rem 0 3rem;
+    align-items: center;
+  }
+
+  .hero-content {
+    width: 100%;
   }
 
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-content p {
+    font-size: 1.05rem;
+  }
+
+  .hero-logo-main {
+    margin-bottom: 1rem;
   }
 
   .hero-logo-main img {
-    height: 170px !important;
+    height: 130px !important;
   }
 
   .hero-logo-background {
