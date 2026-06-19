@@ -62,8 +62,8 @@ export default function StoryPage() {
 
             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/mark-beginning.webp"
-                alt="Mark in Salted Soul gear at the sunset pier"
+                src="/headersalted.webp"
+                alt="Mark surfing the South Carolina coast at sunset"
                 fill
                 className="object-cover object-center"
               />
@@ -120,8 +120,8 @@ export default function StoryPage() {
       <section className="relative h-[26rem] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/headersalted.png"
-            alt="Salted Soul, faith and coastal living in South Carolina"
+            src="/mark-carol-2.webp"
+            alt="Mark and Carol watching the sunset together on a South Carolina beach"
             fill
             className="object-cover object-center"
           />
