@@ -62,8 +62,8 @@ export default function StoryPage() {
 
             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/mark-surfing.webp"
-                alt="Mark surfing the waves off the South Carolina coast"
+                src="/our-story-sunset.webp"
+                alt="Mark and Carol relaxing on the beach as the sun rises over the South Carolina coast"
                 fill
                 className="object-cover object-center"
               />
