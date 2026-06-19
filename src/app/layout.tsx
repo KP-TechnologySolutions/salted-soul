@@ -46,14 +46,16 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://saltedsoulsc.com'),
+  // Staging domain so link-preview (og:image) URLs resolve on the live site.
+  // Change to https://saltedsoulsc.com once that domain is pointed here.
+  metadataBase: new URL('https://saltedsoulsc.dreamhosters.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://saltedsoulsc.com',
+    url: 'https://saltedsoulsc.dreamhosters.com',
     siteName: 'Salted Soul',
     title: 'Salted Soul - Christian Apparel with Soul & Salt',
     description: 'Christian apparel with authentic surf soul. Bold faith meets coastal style in designs that spark real conversations about Jesus.',
