@@ -63,7 +63,7 @@ export default function StoryPage() {
             <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/our-story-sunset.webp"
-                alt="Mark and Carol relaxing on the beach as the sun rises over the South Carolina coast"
+                alt="A cross made of stones arranged on a rock at the beach, with the ocean behind on the South Carolina coast"
                 fill
                 className="object-cover object-center"
               />

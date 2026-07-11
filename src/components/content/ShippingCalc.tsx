@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-const THRESHOLD = 75
+const THRESHOLD = 70
 
 export default function ShippingCalc() {
   const [subtotal, setSubtotal] = useState(45)

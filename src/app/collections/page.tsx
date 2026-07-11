@@ -68,16 +68,16 @@ export default function CollectionsPage() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-bold text-gray-900">{collection.name}</h3>
-                  <span className="text-sm text-gray-500">{collection.itemCount} items</span>
+                  <span className="text-xs font-medium uppercase tracking-wide text-ocean-600">Coming soon</span>
                 </div>
-                
+
                 <p className="text-gray-600 text-sm leading-relaxed">
                   {collection.description}
                 </p>
-                
+
                 <Link href={`/collections/${collection.slug}`}>
-                  <Button className="w-full mt-4">
-                    Shop {collection.name}
+                  <Button variant="outline" className="w-full mt-4">
+                    Preview — coming soon
                   </Button>
                 </Link>
               </div>

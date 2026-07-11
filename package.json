@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "serve": "rm -rf .next out && next build && find out -name \"*.txt\" -delete && npx serve out/ -p 4000"
+    "serve": "rm -rf .next out && next build && find out -name \"*.txt\" -delete && npx serve out/ -p 4000",
+    "generate:catalog": "node scripts/generate-catalog.mjs",
+    "prebuild": "node scripts/generate-catalog.mjs"
   },
   "dependencies": {
     "next": "15.5.12",

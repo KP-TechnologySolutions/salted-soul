@@ -89,7 +89,7 @@ function calculateTotals(state: CartState): CartState {
     0
   )
 
-  const shipping = subtotal > 75 ? 0 : 8.95 // Free shipping over $75
+  const shipping = subtotal > 70 ? 0 : 8.95 // Free shipping over $70
   const tax = subtotal * 0.08 // 8% tax
   const discount = state.discountAmount || 0
   const total = subtotal + shipping + tax - discount

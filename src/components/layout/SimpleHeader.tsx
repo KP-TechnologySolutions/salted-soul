@@ -3,6 +3,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { ShoppingBag } from 'lucide-react'
+import { useCart } from '@/lib/cart-context'
+import CartDrawer from '@/components/cart/CartDrawer'
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -15,6 +18,8 @@ const navLinks = [
 
 export default function SimpleHeader() {
   const [open, setOpen] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
+  const { state } = useCart()
 
   return (
     <header>
@@ -45,17 +50,30 @@ export default function SimpleHeader() {
           ))}
         </nav>
 
-        {/* Mobile menu toggle */}
-        <button
-          className="mobile-menu-btn"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className={open ? 'bar bar-1-open' : 'bar'} />
-          <span className={open ? 'bar bar-2-open' : 'bar'} />
-          <span className={open ? 'bar bar-3-open' : 'bar'} />
-        </button>
+        <div className="header-actions">
+          {/* Cart */}
+          <button
+            type="button"
+            className="cart-btn"
+            aria-label={`Open cart${state.totalItems ? `, ${state.totalItems} item${state.totalItems === 1 ? '' : 's'}` : ''}`}
+            onClick={() => setCartOpen(true)}
+          >
+            <ShoppingBag size={22} strokeWidth={1.75} />
+            {state.totalItems > 0 && <span className="cart-count">{state.totalItems}</span>}
+          </button>
+
+          {/* Mobile menu toggle */}
+          <button
+            className="mobile-menu-btn"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className={open ? 'bar bar-1-open' : 'bar'} />
+            <span className={open ? 'bar bar-2-open' : 'bar'} />
+            <span className={open ? 'bar bar-3-open' : 'bar'} />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu panel */}
@@ -66,6 +84,9 @@ export default function SimpleHeader() {
           </Link>
         ))}
       </div>
+
+      {/* Cart drawer (Shopify-hosted checkout handoff) */}
+      <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </header>
   )
 }

@@ -39,9 +39,9 @@ export default function ShopPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="font-semibold text-charcoal-900 mb-2">Free Shipping Over $75</h3>
+              <h3 className="font-semibold text-charcoal-900 mb-2">Free Shipping Over $70</h3>
               <p className="text-charcoal-600 text-sm">
-                Enjoy free shipping on all orders over $75. Fast, reliable delivery to your door.
+                Enjoy free shipping on all orders over $70. Fast, reliable delivery to your door.
               </p>
             </div>
 

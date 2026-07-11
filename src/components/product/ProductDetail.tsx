@@ -220,7 +220,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                   </button>
                 </div>
                 <span className="text-gray-600">
-                  {selectedVariant.inventory} available
+                  {selectedVariant.available ? 'In stock' : 'Out of stock'}
                 </span>
               </div>
             </div>

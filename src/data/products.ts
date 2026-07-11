@@ -1,4 +1,5 @@
 import { Product, Collection, Category } from '@/types/product'
+import { shopifyProducts } from './catalog.generated'
 
 export const categories: Category[] = [
   {
@@ -78,7 +79,7 @@ export const collections: Collection[] = [
   },
 ]
 
-export const products: Product[] = [
+const mockProducts: Product[] = [
   {
     id: 'beach-bound-christian-tee',
     name: 'Beach Bound Christian Tee',
@@ -764,3 +765,8 @@ export const products: Product[] = [
     updatedAt: '2024-03-11T00:00:00Z',
   },
 ]
+
+// Prefer the live Shopify catalog (generated at build time by
+// scripts/generate-catalog.mjs). Falls back to the mock catalog above when
+// Shopify isn't configured or returns no products, so the build never breaks.
+export const products: Product[] = shopifyProducts.length > 0 ? shopifyProducts : mockProducts

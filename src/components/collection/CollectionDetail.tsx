@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import ProductGrid from '@/components/product/ProductGrid'
+import ComingSoon from '@/components/ui/ComingSoon'
 import { products, collections } from '@/data/products'
 
 export default function CollectionDetail({ slug, story }: { slug: string; story: string }) {
@@ -23,7 +24,7 @@ export default function CollectionDetail({ slug, story }: { slug: string; story:
             <p className="text-lg text-white/85 mb-6 max-w-xl leading-relaxed">{collection.description}</p>
             <div className="flex flex-wrap items-center gap-3">
               <span className="rounded-full bg-white/15 border border-white/25 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
-                {items.length} {items.length === 1 ? 'item' : 'items'}
+                {items.length > 0 ? `${items.length} ${items.length === 1 ? 'item' : 'items'}` : 'Coming soon'}
               </span>
               <span className="rounded-full bg-white/15 border border-white/25 px-4 py-1.5 text-sm font-medium backdrop-blur-sm">
                 10% supports ministry
@@ -38,9 +39,10 @@ export default function CollectionDetail({ slug, story }: { slug: string; story:
         {items.length > 0 ? (
           <ProductGrid products={items} />
         ) : (
-          <p className="container-wide text-center text-charcoal-600">
-            New pieces are coming to this collection soon.
-          </p>
+          <ComingSoon
+            title="This collection is coming soon"
+            message="We’re curating the pieces for this collection now. Our handcrafted hats are ready to ship today."
+          />
         )}
       </section>
 

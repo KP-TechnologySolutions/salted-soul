@@ -30,7 +30,7 @@ const Header: React.FC = () => {
       {/* Announcement Bar */}
       <div className="bg-ocean-600 text-white py-2 text-center text-sm">
         <p>
-          Free shipping on orders over $75 | 
+          Free shipping on orders over $70 | 
           <span className="font-semibold ml-1">Shop Faith Collection</span>
         </p>
       </div>

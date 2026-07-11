@@ -4,8 +4,8 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Reveal from '@/components/ui/Reveal'
+import { products } from '@/data/products'
 import {
-  StarSolid,
   Wave,
   Cross,
   Columns,
@@ -14,45 +14,17 @@ import {
   Truck,
 } from '@/components/ui/icons'
 
-const Stars = ({ count = 5 }: { count?: number }) => (
-  <div className="review-stars" role="img" aria-label={`${count} out of 5 stars`}>
-    {Array.from({ length: count }).map((_, i) => (
-      <StarSolid key={i} width={18} height={18} />
-    ))}
-  </div>
-)
-
 export default function HomePage() {
-  const bestSellers = [
-    { name: 'Beach Bound Christian Tee', price: 32, image: '/product-6.png', category: "Men's Shirts", ministry: 3.2 },
-    { name: 'Sage Sunset Faith Tee', price: 32, image: '/product-sage-sunset.png', category: "Men's Shirts", ministry: 3.2 },
-    { name: 'Gear Faith Snapback', price: 35, image: '/gear.png', category: 'Hats', ministry: 3.5 },
-    { name: 'Salt & Light Hoodie', price: 48, image: '/product-7.png', category: 'Hoodies', ministry: 4.8 },
-  ]
-
-  const reviews = [
-    {
-      initials: 'MT',
-      stars: 5,
-      text: '"This Charleston snapback is everything! Started 3 conversations about faith at the beach last weekend. Quality is amazing."',
-      name: 'Marcus T.',
-      location: 'Folly Beach, SC',
-    },
-    {
-      initials: 'SM',
-      stars: 5,
-      text: '"Love that my purchase supports ministry! The shirt fits perfectly and the message is bold but not preachy."',
-      name: 'Sarah M.',
-      location: 'Charleston, SC',
-    },
-    {
-      initials: 'JE',
-      stars: 5,
-      text: '"Finally found Christian apparel that doesn\'t look cheesy. The coastal vibe is perfect for our lifestyle."',
-      name: 'Jake & Emma',
-      location: 'Myrtle Beach, SC',
-    },
-  ]
+  // Pull real products from the live catalog (hats today) rather than hardcoded
+  // placeholders, so the homepage only ever shows items customers can actually buy.
+  const bestSellers = products.slice(0, 4).map((p) => ({
+    name: p.name,
+    price: p.price,
+    image: p.images?.[0]?.url ?? '/salted_soul_logo.webp',
+    category: p.category.name,
+    href: `/shop/${p.category.slug}/${p.slug}`,
+    ministry: Math.round(p.price * 0.1 * 100) / 100,
+  }))
 
   const collections = [
     { title: 'Faith Collection', image: '/collection-faith.png', icon: <Cross width={22} height={22} />, href: '/collections/faith-collection', description: 'Bold Christian messages with coastal style. Tees, hoodies, and hats that start conversations about Jesus.' },
@@ -85,8 +57,8 @@ export default function HomePage() {
             </p>
 
             <div className="hero-buttons">
-              <Link href="/collections" className="btn btn-primary">
-                Shop Collection →
+              <Link href="/shop/hats" className="btn btn-primary">
+                Shop the Hats →
               </Link>
               <Link href="/story" className="btn btn-outline">
                 Our Story
@@ -95,10 +67,10 @@ export default function HomePage() {
 
             <div className="trust-indicators">
               {[
-                { number: '$12,847', label: 'Raised for Ministry' },
-                { number: '2,847+', label: 'Happy Customers' },
-                { number: '47', label: 'Churches Supported' },
-                { number: '4.9/5', label: 'Customer Rating' },
+                { number: 'Handmade', label: 'in Charleston, SC' },
+                { number: '10%', label: 'Supports coastal ministry' },
+                { number: '$70+', label: 'Ships free' },
+                { number: '5', label: 'Signature colorways' },
               ].map((stat) => (
                 <div key={stat.label} className="trust-card">
                   <div className="trust-number">{stat.number}</div>
@@ -114,9 +86,9 @@ export default function HomePage() {
       <section className="trust-badges">
         <div className="container-wide">
           <div className="badges-container">
-            <div className="badge"><Truck width={18} height={18} /><span>Free shipping over $75</span></div>
+            <div className="badge"><Truck width={18} height={18} /><span>Free shipping over $70</span></div>
             <div className="badge"><HandHeart width={18} height={18} /><span>10% supports coastal ministries</span></div>
-            <div className="badge"><StarSolid width={16} height={16} /><span>2,847+ happy customers</span></div>
+            <div className="badge"><Wave width={16} height={16} /><span>Handcrafted in Charleston</span></div>
           </div>
         </div>
       </section>
@@ -125,29 +97,29 @@ export default function HomePage() {
       <section className="section" style={{ backgroundColor: 'var(--surface)' }}>
         <div className="container-wide">
           <Reveal className="section-header">
-            <h2 className="section-title">Best sellers</h2>
-            <p className="section-subtitle">Our most loved coastal Christian apparel</p>
+            <h2 className="section-title">Our handcrafted hats</h2>
+            <p className="section-subtitle">Made by hand in Charleston — ready to ship today</p>
           </Reveal>
 
           <div className="products-grid">
             {bestSellers.map((product, index) => (
               <Reveal key={product.name} index={index} className="product-card">
-                <div className="product-card-image">
+                <Link href={product.href} className="product-card-image" aria-label={product.name}>
                   <Image src={product.image} alt={product.name} width={300} height={300} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div className="product-card-overlay">
-                    <button className="btn btn-primary btn-sm">Quick Shop</button>
+                    <span className="btn btn-primary btn-sm">Quick Shop</span>
                   </div>
-                </div>
+                </Link>
                 <div className="product-card-content">
                   <div className="product-category">{product.category}</div>
                   <h3 className="product-name">{product.name}</h3>
                   <div className="product-pricing">
-                    <div className="product-price">${product.price}.00</div>
+                    <div className="product-price">${product.price.toFixed(2)}</div>
                     <div className="product-ministry">${product.ministry.toFixed(2)} supports ministries</div>
                   </div>
-                  <button className="btn btn-primary" style={{ width: '100%' }}>
-                    Add to Cart — ${product.price}
-                  </button>
+                  <Link href={product.href} className="btn btn-primary" style={{ width: '100%' }}>
+                    View — ${product.price}
+                  </Link>
                 </div>
               </Reveal>
             ))}
@@ -182,32 +154,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Customer Reviews */}
-      <section className="section">
-        <div className="container-wide">
-          <Reveal className="section-header">
-            <h2 className="section-title">What customers say</h2>
-            <p className="section-subtitle">Real reviews from the Salted Soul family</p>
-          </Reveal>
-
-          <div className="reviews-grid">
-            {reviews.map((review, index) => (
-              <Reveal key={review.name} index={index} className="review-card">
-                <Stars count={review.stars} />
-                <p className="review-text">{review.text}</p>
-                <div className="review-author">
-                  <div className="review-photo" aria-hidden="true">{review.initials}</div>
-                  <div>
-                    <div className="review-name">{review.name}</div>
-                    <div className="review-location">{review.location}</div>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Product */}
       <section className="section">
         <div className="container-wide">
@@ -226,8 +172,8 @@ export default function HomePage() {
                 <div className="ministry-support">$3.20 supports coastal ministries</div>
               </div>
               <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
-                <Link href="/shop/charleston-snapback" className="btn btn-primary">Shop Now — $32</Link>
-                <Link href="/shop/hats" className="btn btn-outline" style={{ color: 'var(--ocean)', borderColor: 'var(--ocean)' }}>View All Hats</Link>
+                <Link href="/shop/hats" className="btn btn-primary">Shop the Hats</Link>
+                <Link href="/story" className="btn btn-outline" style={{ color: 'var(--ocean)', borderColor: 'var(--ocean)' }}>Our Story</Link>
               </div>
             </div>
           </Reveal>
@@ -314,7 +260,7 @@ export default function HomePage() {
                 <div className="collection-content">
                   <h3 className="collection-title">{collection.title}</h3>
                   <p className="collection-description">{collection.description}</p>
-                  <Link href={collection.href} className="btn btn-primary">Shop Collection</Link>
+                  <Link href={collection.href} className="btn btn-outline" style={{ color: 'var(--ocean)', borderColor: 'var(--ocean)' }}>Coming soon</Link>
                 </div>
               </Reveal>
             ))}

@@ -61,9 +61,9 @@ export default function ShippingPage() {
           {/* Details */}
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
             <Reveal>
-              <h2 className="text-xl font-semibold text-charcoal-900 mb-2">Free over $75</h2>
+              <h2 className="text-xl font-semibold text-charcoal-900 mb-2">Free over $70</h2>
               <p className="text-charcoal-600 leading-relaxed">
-                U.S. orders over $75 ship free. Orders under that are charged a flat rate calculated at checkout, so
+                U.S. orders over $70 ship free. Orders under that are charged a flat rate calculated at checkout, so
                 there are no surprises.
               </p>
             </Reveal>

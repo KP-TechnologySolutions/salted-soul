@@ -192,7 +192,7 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                 )}
                 {state.shipping > 0 && (
                   <p className="text-xs text-gray-600">
-                    Spend ${(75 - state.subtotal).toFixed(2)} more for free shipping
+                    Spend ${(70 - state.subtotal).toFixed(2)} more for free shipping
                   </p>
                 )}
                 <div className="flex justify-between text-sm">

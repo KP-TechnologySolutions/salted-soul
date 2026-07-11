@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import ProductGrid from '@/components/product/ProductGrid'
+import ComingSoon from '@/components/ui/ComingSoon'
 import { products } from '@/data/products'
 
 export const metadata: Metadata = {
@@ -25,12 +26,10 @@ export default function SalePage() {
         {items.length > 0 ? (
           <ProductGrid products={items} />
         ) : (
-          <div className="container-wide text-center">
-            <p className="text-charcoal-600 mb-6">
-              No sales running right now — but new designs drop often.
-            </p>
-            <a href="/shop" className="btn btn-primary">Shop all apparel</a>
-          </div>
+          <ComingSoon
+            title="No sales right now"
+            message="Everything is at everyday pricing today. New designs and seasonal offers are on the way — check out our handcrafted hats in the meantime."
+          />
         )}
       </section>
     </div>
