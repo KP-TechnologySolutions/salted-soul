@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s | Salted Soul',
     default: 'Salted Soul - Christian Apparel with Soul & Salt',
   },
-  description: 'Christian apparel with authentic surf soul. Bold faith meets coastal style in designs that spark real conversations about Jesus. Faith-rooted, premium quality, Kingdom impact.',
+  description: 'Christian apparel with authentic, faith-rooted designs. Bold faith meets coastal style in pieces that spark real conversations about Jesus. Premium quality, Kingdom impact.',
   keywords: [
     'christian apparel',
     'faith clothing', 
@@ -46,19 +46,18 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  // Staging domain so link-preview (og:image) URLs resolve on the live site.
-  // Change to https://saltedsoulsc.com once that domain is pointed here.
-  metadataBase: new URL('https://saltedsoulsc.dreamhosters.com'),
+  // Production domain — used to resolve og:image and canonical URLs.
+  metadataBase: new URL('https://saltedsoulsc.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://saltedsoulsc.dreamhosters.com',
+    url: 'https://saltedsoulsc.com',
     siteName: 'Salted Soul',
     title: 'Salted Soul - Christian Apparel with Soul & Salt',
-    description: 'Christian apparel with authentic surf soul. Bold faith meets coastal style in designs that spark real conversations about Jesus.',
+    description: 'Christian apparel with authentic, faith-rooted designs. Bold faith meets coastal style in pieces that spark real conversations about Jesus.',
     images: [
       {
         url: '/og-image.jpg', // Add this image to public folder
@@ -73,7 +72,7 @@ export const metadata: Metadata = {
     site: '@saltedsoul',
     creator: '@saltedsoul',
     title: 'Salted Soul - Christian Apparel with Soul & Salt',
-    description: 'Christian apparel with authentic surf soul. Bold faith meets coastal style.',
+    description: 'Christian apparel with authentic, faith-rooted designs. Bold faith meets coastal style.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -123,7 +122,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Salted Soul',
-              description: 'Christian apparel with authentic surf soul',
+              description: 'Christian apparel with authentic, faith-rooted designs',
               url: 'https://saltedsoulsc.com',
               logo: 'https://saltedsoulsc.com/salted_soul_logo.webp',
               contactPoint: {
