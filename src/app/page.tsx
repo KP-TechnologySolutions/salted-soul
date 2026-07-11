@@ -77,7 +77,6 @@ export default function HomePage() {
         <div className="container-wide">
           <Reveal className="section-header">
             <h2 className="section-title">Our handcrafted hats</h2>
-            <p className="section-subtitle">Made by hand in Charleston, SC — ready to ship today</p>
           </Reveal>
 
           <div className="products-grid">
