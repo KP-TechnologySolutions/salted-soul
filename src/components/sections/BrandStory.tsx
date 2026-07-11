@@ -124,7 +124,7 @@ const BrandStory: React.FC = () => {
             </div>
             <h3 className="text-xl font-bold text-charcoal-900 mb-3">Kingdom Impact</h3>
             <p className="text-charcoal-600">
-              10% of profits support coastal ministries and church plants. Your purchase directly funds the Great Commission.
+              10% of profits support local ministries and church plants. Your purchase directly funds the Great Commission.
             </p>
           </div>
         </div>

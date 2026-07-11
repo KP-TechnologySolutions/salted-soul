@@ -10,7 +10,7 @@ export default function MinistryImpact() {
     <div className="rounded-2xl border border-ocean-100 bg-ocean-50 p-6 sm:p-8">
       <h2 className="font-semibold text-charcoal-900 mb-1">See your impact</h2>
       <p className="text-sm text-charcoal-600 mb-6">
-        10% of profits go to coastal ministries and church plants. Slide to your order total.
+        10% of profits go to local ministries and church plants. Slide to your order total.
       </p>
 
       <div className="flex flex-wrap items-end justify-between gap-4 mb-4">

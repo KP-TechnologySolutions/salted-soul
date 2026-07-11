@@ -58,7 +58,7 @@ export default function ContactPage() {
             {[
               {
                 question: "What makes Salted Soul different from other apparel brands?",
-                answer: "We're faith-first in everything we do. Every design is created to spark meaningful conversations about Jesus, and 10% of our profits support coastal ministries and church plants. We're not just selling clothes—we're building the Kingdom."
+                answer: "We're faith-first in everything we do. Every design is created to spark meaningful conversations about Jesus, and 10% of our profits support local ministries and church plants. We're not just selling clothes—we're building the Kingdom."
               },
               {
                 question: "What is your return policy?",

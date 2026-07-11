@@ -11,7 +11,6 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/shop', label: 'Shop All' },
   { href: '/shop/hats', label: 'Hats' },
-  { href: '/collections', label: 'Collections' },
   { href: '/story', label: 'Our Story' },
   { href: '/contact', label: 'Contact' },
 ]
@@ -37,7 +36,6 @@ export default function SimpleHeader() {
           </div>
           <div className="logo-text">
             <h1>Salted Soul</h1>
-            <p>Charleston Coastal Faith</p>
           </div>
         </Link>
 

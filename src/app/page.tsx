@@ -8,7 +8,6 @@ import { products } from '@/data/products'
 import {
   Wave,
   Cross,
-  Columns,
   HandHeart,
   Tee,
   Truck,
@@ -25,12 +24,6 @@ export default function HomePage() {
     href: `/shop/${p.category.slug}/${p.slug}`,
     ministry: Math.round(p.price * 0.1 * 100) / 100,
   }))
-
-  const collections = [
-    { title: 'Faith Collection', image: '/collection-faith.png', icon: <Cross width={22} height={22} />, href: '/collections/faith-collection', description: 'Bold Christian messages with coastal style. Tees, hoodies, and hats that start conversations about Jesus.' },
-    { title: 'Surf Essentials', image: '/collection-surf.png', icon: <Wave width={22} height={22} />, href: '/collections/surf-essentials', description: 'Beach-ready apparel with subtle faith elements. Made for surf sessions and coastal living.' },
-    { title: 'Charleston Collection', image: '/collection-charleston.png', icon: <Columns width={22} height={22} />, href: '/collections/charleston-collection', description: 'Hometown pride meets coastal faith in designs inspired by the Holy City.' },
-  ]
 
   return (
     <main>
@@ -53,7 +46,7 @@ export default function HomePage() {
               <span className="highlight">authentic faith</span>
             </h1>
             <p>
-              Faith-inspired designs that spark real conversations. Every purchase supports coastal ministries.
+              Faith-inspired designs that spark real conversations. Every purchase supports local ministries.
             </p>
 
             <div className="hero-buttons">
@@ -64,20 +57,6 @@ export default function HomePage() {
                 Our Story
               </Link>
             </div>
-
-            <div className="trust-indicators">
-              {[
-                { number: 'Handmade', label: 'in Charleston, SC' },
-                { number: '10%', label: 'Supports coastal ministry' },
-                { number: '$70+', label: 'Ships free' },
-                { number: '5', label: 'Signature colorways' },
-              ].map((stat) => (
-                <div key={stat.label} className="trust-card">
-                  <div className="trust-number">{stat.number}</div>
-                  <div className="trust-label">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </Reveal>
         </div>
       </section>
@@ -87,7 +66,7 @@ export default function HomePage() {
         <div className="container-wide">
           <div className="badges-container">
             <div className="badge"><Truck width={18} height={18} /><span>Free shipping over $70</span></div>
-            <div className="badge"><HandHeart width={18} height={18} /><span>10% supports coastal ministries</span></div>
+            <div className="badge"><HandHeart width={18} height={18} /><span>10% supports local ministries</span></div>
             <div className="badge"><Wave width={16} height={16} /><span>Handcrafted in Charleston</span></div>
           </div>
         </div>
@@ -169,7 +148,7 @@ export default function HomePage() {
               </p>
               <div className="price-info">
                 <div className="price">$32.00</div>
-                <div className="ministry-support">$3.20 supports coastal ministries</div>
+                <div className="ministry-support">$3.20 supports local ministries</div>
               </div>
               <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
                 <Link href="/shop/hats" className="btn btn-primary">Shop the Hats</Link>
@@ -198,7 +177,7 @@ export default function HomePage() {
               <span className="craft-badge">Behind the scenes</span>
             </div>
             <div className="product-info">
-              <h2>Handcrafted in Charleston</h2>
+              <h2>Designed and Embroidered in Charleston, SC</h2>
               <p>
                 Every hat is made by hand, one at a time — no mass production, no shortcuts.
                 What you wear started on a workbench in the Lowcountry, shaped with the same
@@ -242,32 +221,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Collections */}
-      <section className="section">
-        <div className="container-wide">
-          <Reveal className="section-header">
-            <h2 className="section-title">Featured collections</h2>
-            <p className="section-subtitle">Curated collections that blend authentic faith with coastal soul</p>
-          </Reveal>
-
-          <div className="collections-grid">
-            {collections.map((collection, index) => (
-              <Reveal key={collection.title} index={index} className="collection-card">
-                <div className="collection-image">
-                  <Image src={collection.image} alt={collection.title} width={500} height={400} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  <span className="collection-badge">{collection.icon}</span>
-                </div>
-                <div className="collection-content">
-                  <h3 className="collection-title">{collection.title}</h3>
-                  <p className="collection-description">{collection.description}</p>
-                  <Link href={collection.href} className="btn btn-outline" style={{ color: 'var(--ocean)', borderColor: 'var(--ocean)' }}>Coming soon</Link>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Mission Statement */}
       <section className="section mission-section">
         <div className="container-wide">
@@ -283,7 +236,7 @@ export default function HomePage() {
             {[
               { icon: <Cross width={26} height={26} />, title: 'Faith-First', description: 'Every design starts with prayer and biblical truth.' },
               { icon: <Tee width={26} height={26} />, title: 'Premium Quality', description: 'Only the finest materials, made for lasting comfort.' },
-              { icon: <HandHeart width={26} height={26} />, title: 'Kingdom Impact', description: '10% of profits support coastal ministries.' },
+              { icon: <HandHeart width={26} height={26} />, title: 'Kingdom Impact', description: '10% of profits support local ministries.' },
             ].map((card, index) => (
               <Reveal key={card.title} index={index} className="mission-card">
                 <div className="mission-icon">{card.icon}</div>

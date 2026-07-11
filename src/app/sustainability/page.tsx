@@ -18,7 +18,7 @@ const principles = [
   },
   {
     title: 'People over product',
-    body: 'Impact is not only environmental. Every order helps fund coastal ministries and the people doing the work on the ground.',
+    body: 'Impact is not only environmental. Every order helps fund local ministries and the people doing the work on the ground.',
   },
 ]
 

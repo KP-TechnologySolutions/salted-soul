@@ -34,7 +34,7 @@ const AIChatAssistant: React.FC = () => {
 
   const predefinedResponses: Record<string, string> = {
     'sizing': "Our apparel runs true to size! For the perfect fit, check out our size guide. Most customers find our coastal-inspired cuts comfortable and relaxed. Need help with a specific product? 👕",
-    'ministry': "Amazing! Our apparel is designed specifically for ministry conversations. The Charleston Snapback and Salt Fish Tee are top choices for outreach events. Each purchase supports coastal ministries too! ⛪",
+    'ministry': "Amazing! Our apparel is designed specifically for ministry conversations. The Charleston Snapback and Salt Fish Tee are top choices for outreach events. Each purchase supports local ministries too! ⛪",
     'shipping': "We offer free shipping on orders over $70! Most orders arrive within 3-5 business days. We also ship to church addresses for ministry events. 📦",
     'quality': "All our apparel uses premium ring-spun cotton with water-based inks for that soft, lived-in feel. We're committed to quality that lasts through countless ministry moments! ⭐",
     'charleston': "As Charleston natives, we design with authentic Holy City culture in mind. Our local designs celebrate both faith and Southern coastal heritage. Born and raised in the Lowcountry! 🏛️"

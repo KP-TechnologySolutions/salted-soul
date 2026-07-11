@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
       <div className="container-wide">
         {/* Main Footer Content */}
         <div className="py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
             {/* Brand Section */}
             <div className="lg:col-span-2">
               {/* Logo */}
@@ -71,22 +71,6 @@ const Footer: React.FC = () => {
               <h3 className="font-semibold text-lg mb-4">Shop</h3>
               <ul className="space-y-3">
                 {footerNavigation.shop.map((item) => (
-                  <li key={item.name}>
-                    <Link 
-                      href={item.href} 
-                      className="inline-block py-1 text-gray-300 hover:text-white transition-colors"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-lg mb-4">Collections</h3>
-              <ul className="space-y-3">
-                {footerNavigation.collections.map((item) => (
                   <li key={item.name}>
                     <Link 
                       href={item.href} 
