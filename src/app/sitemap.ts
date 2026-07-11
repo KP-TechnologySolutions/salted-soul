@@ -12,7 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/shop/hats',
     '/shop/new-arrivals',
     '/shop/best-sellers',
-    '/shop/sale',
     '/story',
     '/contact',
     '/size-guide',

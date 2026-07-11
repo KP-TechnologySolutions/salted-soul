@@ -136,7 +136,6 @@ export const footerNavigation = {
     { name: 'Hats', href: '/shop/hats' },
     { name: 'New Arrivals', href: '/shop/new-arrivals' },
     { name: 'Best Sellers', href: '/shop/best-sellers' },
-    { name: 'Sale', href: '/shop/sale' },
   ],
   collections: [
     { name: 'Faith Collection', href: '/collections/faith-collection' },
