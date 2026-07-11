@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import LegalDoc, { LegalSection } from '@/components/content/LegalDoc'
+import ShopifyPolicy from '@/components/content/ShopifyPolicy'
+import { shopifyPolicies } from '@/data/policies.generated'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
@@ -79,20 +81,27 @@ export default function TermsPage() {
       <section className="bg-gradient-sand py-16">
         <div className="container-wide text-center">
           <h1 className="heading-primary mb-4">Terms of Service</h1>
-          <p className="text-charcoal-600">Last updated June 17, 2026</p>
+          <p className="text-charcoal-600">The terms that govern your use of our store.</p>
         </div>
       </section>
 
       <section className="section-padding">
         <div className="container-wide">
-          <p className="text-charcoal-700 leading-relaxed max-w-[68ch] mb-12">
-            Welcome to Salted Soul. By using saltedsoulsc.com or placing an order, you agree to these terms. Please
-            read them carefully.
-          </p>
-          <LegalDoc sections={sections} />
-          <p className="text-sm text-charcoal-500 border-t border-line pt-6 mt-12 max-w-[68ch]">
-            These terms are a general template and should be reviewed by legal counsel before launch.
-          </p>
+          {shopifyPolicies.termsOfService ? (
+            /* Live policy authored in Shopify (single source of truth) */
+            <ShopifyPolicy policy={shopifyPolicies.termsOfService} />
+          ) : (
+            <>
+              <p className="text-charcoal-700 leading-relaxed max-w-[68ch] mb-12">
+                Welcome to Salted Soul. By using saltedsoulsc.com or placing an order, you agree to these terms.
+                Please read them carefully.
+              </p>
+              <LegalDoc sections={sections} />
+              <p className="text-sm text-charcoal-500 border-t border-line pt-6 mt-12 max-w-[68ch]">
+                These terms are a general template and should be reviewed by legal counsel before launch.
+              </p>
+            </>
+          )}
         </div>
       </section>
     </div>

@@ -21,6 +21,7 @@ import { dirname, resolve } from 'node:path'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
 const OUT = resolve(ROOT, 'src/data/catalog.generated.ts')
+const OUT_POLICIES = resolve(ROOT, 'src/data/policies.generated.ts')
 
 // --- Load .env.local if the vars aren't already set --------------------------
 function loadEnvLocal() {
@@ -50,6 +51,22 @@ function writeCatalog(products) {
     "import { Product } from '@/types/product'\n\n" +
     `export const shopifyProducts: Product[] = ${JSON.stringify(products, null, 2)}\n`
   writeFileSync(OUT, body)
+}
+
+// Store policies (Privacy, Terms, Refund, Shipping) authored in Shopify admin —
+// pulled at build time so Shopify stays the single source of truth. Each value is
+// { title, body (HTML), url } or null when the policy isn't set.
+function writePolicies(policies) {
+  const body =
+    banner +
+    'export interface ShopPolicy { title: string; body: string; url: string }\n\n' +
+    `export const shopifyPolicies: {\n` +
+    `  privacyPolicy: ShopPolicy | null\n` +
+    `  termsOfService: ShopPolicy | null\n` +
+    `  refundPolicy: ShopPolicy | null\n` +
+    `  shippingPolicy: ShopPolicy | null\n` +
+    `} = ${JSON.stringify(policies, null, 2)}\n`
+  writeFileSync(OUT_POLICIES, body)
 }
 
 // --- Map a Shopify product node to the site's Product type -------------------
@@ -149,10 +166,52 @@ const QUERY = `{
   }
 }`
 
+const POLICIES_QUERY = `{
+  shop {
+    privacyPolicy { title url body }
+    termsOfService { title url body }
+    refundPolicy { title url body }
+    shippingPolicy { title url body }
+  }
+}`
+
+async function shopifyFetch(query) {
+  const res = await fetch(`https://${DOMAIN}/api/${API_VERSION}/graphql.json`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-Shopify-Storefront-Access-Token': TOKEN },
+    body: JSON.stringify({ query }),
+  })
+  if (!res.ok) throw new Error(`Shopify request failed: ${res.status} ${res.statusText}`)
+  const json = await res.json()
+  if (json.errors?.length) throw new Error(`Shopify GraphQL error: ${json.errors.map((e) => e.message).join('; ')}`)
+  return json.data
+}
+
+async function generatePolicies() {
+  try {
+    const data = await shopifyFetch(POLICIES_QUERY)
+    const s = data?.shop ?? {}
+    const pick = (p) => (p && p.body ? { title: p.title, body: p.body, url: p.url } : null)
+    const policies = {
+      privacyPolicy: pick(s.privacyPolicy),
+      termsOfService: pick(s.termsOfService),
+      refundPolicy: pick(s.refundPolicy),
+      shippingPolicy: pick(s.shippingPolicy),
+    }
+    writePolicies(policies)
+    const set = Object.entries(policies).filter(([, v]) => v).map(([k]) => k)
+    console.log(`[policies] Wrote ${set.length} policy/policies to src/data/policies.generated.ts: ${set.join(', ') || '(none set)'}`)
+  } catch (err) {
+    console.warn(`[policies] fetch failed (${err.message}); keeping existing policies file if present.`)
+    if (!existsSync(OUT_POLICIES)) writePolicies({ privacyPolicy: null, termsOfService: null, refundPolicy: null, shippingPolicy: null })
+  }
+}
+
 async function main() {
   if (!DOMAIN || !TOKEN) {
     console.warn('[catalog] Shopify not configured — writing empty catalog (site falls back to mock data).')
     writeCatalog([])
+    if (!existsSync(OUT_POLICIES)) writePolicies({ privacyPolicy: null, termsOfService: null, refundPolicy: null, shippingPolicy: null })
     return
   }
   console.log(`[catalog] Fetching products from ${DOMAIN} (API ${API_VERSION})…`)
@@ -170,6 +229,8 @@ async function main() {
   writeCatalog(products)
   console.log(`[catalog] Wrote ${products.length} product(s) to src/data/catalog.generated.ts`)
   for (const p of products) console.log(`  • ${p.name} — $${p.price} — ${p.variants.length} variant(s) — available: ${p.variants.some((v) => v.available)}`)
+
+  await generatePolicies()
 }
 
 main().catch((err) => {

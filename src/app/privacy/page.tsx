@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 import LegalDoc, { LegalSection } from '@/components/content/LegalDoc'
+import ShopifyPolicy from '@/components/content/ShopifyPolicy'
+import { shopifyPolicies } from '@/data/policies.generated'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -72,21 +74,28 @@ export default function PrivacyPage() {
       <section className="bg-gradient-sand py-16">
         <div className="container-wide text-center">
           <h1 className="heading-primary mb-4">Privacy Policy</h1>
-          <p className="text-charcoal-600">Last updated June 17, 2026</p>
+          <p className="text-charcoal-600">How we collect, use, and protect your information.</p>
         </div>
       </section>
 
       <section className="section-padding">
         <div className="container-wide">
-          <p className="text-charcoal-700 leading-relaxed max-w-[68ch] mb-12">
-            Salted Soul respects your privacy. This policy explains what information we collect when you visit
-            saltedsoulsc.com or place an order, and how we use it.
-          </p>
-          <LegalDoc sections={sections} />
-          <p className="text-sm text-charcoal-500 border-t border-line pt-6 mt-12 max-w-[68ch]">
-            This policy is a general template and should be reviewed by legal counsel before launch to ensure it
-            reflects your actual data practices and meets applicable requirements.
-          </p>
+          {shopifyPolicies.privacyPolicy ? (
+            /* Live policy authored in Shopify (single source of truth) */
+            <ShopifyPolicy policy={shopifyPolicies.privacyPolicy} />
+          ) : (
+            <>
+              <p className="text-charcoal-700 leading-relaxed max-w-[68ch] mb-12">
+                Salted Soul respects your privacy. This policy explains what information we collect when you visit
+                saltedsoulsc.com or place an order, and how we use it.
+              </p>
+              <LegalDoc sections={sections} />
+              <p className="text-sm text-charcoal-500 border-t border-line pt-6 mt-12 max-w-[68ch]">
+                This policy is a general template and should be reviewed by legal counsel before launch to ensure it
+                reflects your actual data practices and meets applicable requirements.
+              </p>
+            </>
+          )}
         </div>
       </section>
     </div>

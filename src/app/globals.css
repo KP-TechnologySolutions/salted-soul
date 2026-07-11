@@ -1139,3 +1139,25 @@ header {
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
+/* Store policy pages — styles the raw HTML pulled from Shopify (Privacy/Terms/etc.) */
+.policy-body h1,
+.policy-body h2,
+.policy-body h3 {
+  font-weight: 600;
+  color: var(--charcoal-900, #1a2b32);
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.policy-body h1 { font-size: 1.5rem; }
+.policy-body h2 { font-size: 1.25rem; }
+.policy-body h3 { font-size: 1.1rem; }
+.policy-body p { margin-bottom: 1rem; }
+.policy-body ul,
+.policy-body ol { margin: 0 0 1rem 1.25rem; list-style: disc; }
+.policy-body ol { list-style: decimal; }
+.policy-body li { margin-bottom: 0.4rem; }
+.policy-body a { color: var(--ocean, #2c7a7b); text-decoration: underline; }
+.policy-body strong { font-weight: 600; color: var(--charcoal-900, #1a2b32); }
+.policy-body br { line-height: 1.6; }
+.policy-body :first-child { margin-top: 0; }
