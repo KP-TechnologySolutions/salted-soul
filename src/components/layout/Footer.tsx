@@ -106,7 +106,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p className="text-gray-400 text-center lg:text-left">
-              © 2026 Salted Soul. All rights reserved. Sharing Jesus with authentic style.
+              © 2026 Salted Soul SC. All rights reserved. Sharing Jesus with authentic style.
             </p>
 
             {/* Legal Links */}

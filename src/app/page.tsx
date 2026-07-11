@@ -67,7 +67,7 @@ export default function HomePage() {
           <div className="badges-container">
             <div className="badge"><Truck width={18} height={18} /><span>Free shipping over $70</span></div>
             <div className="badge"><HandHeart width={18} height={18} /><span>10% supports local ministries</span></div>
-            <div className="badge"><Wave width={16} height={16} /><span>Handcrafted in Charleston</span></div>
+            <div className="badge"><Wave width={16} height={16} /><span>Handcrafted in Charleston, SC</span></div>
           </div>
         </div>
       </section>
@@ -103,33 +103,6 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="section">
-        <div className="container-wide">
-          <Reveal className="section-header">
-            <h2 className="section-title">Ordering is easy</h2>
-            <p className="section-subtitle">From the lineup to your door in four simple steps.</p>
-          </Reveal>
-          <Reveal>
-            <div className="howto-video">
-              <video
-                src="/videos/how-to-order.mp4"
-                poster="/videos/how-to-order-poster.jpg"
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                aria-label="How to order from Salted Soul: find your design, add to cart, secure checkout, we ship it"
-              />
-            </div>
-          </Reveal>
-          <Reveal className="howto-cta">
-            <Link href="/shop" className="btn btn-primary">Start shopping</Link>
-          </Reveal>
         </div>
       </section>
 
