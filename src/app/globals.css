@@ -398,6 +398,9 @@ h1, h2, h3, .section-title, .hero-content h1, .product-info h2,
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .product-card:hover {
@@ -428,6 +431,9 @@ h1, h2, h3, .section-title, .hero-content h1, .product-info h2,
 
 .product-card-content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
 
 .product-category {
@@ -876,6 +882,7 @@ header {
 /* Product Pricing Updates */
 .product-pricing {
   margin: 0.5rem 0;
+  margin-top: auto;
 }
 
 .product-price {
