@@ -7,7 +7,6 @@ import { useCart } from '@/lib/cart-context'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import PriceDisplay from '@/components/ui/PriceDisplay'
-import Rating from '@/components/ui/Rating'
 import { generateId } from '@/lib/utils'
 
 interface ProductDetailProps {
@@ -128,12 +127,6 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
               {product.name}
             </h1>
 
-            {/* Rating & Reviews */}
-            <div className="flex items-center gap-4 mb-6">
-              <Rating value={4.8} showValue size="medium" />
-              <span className="text-gray-600">(127 reviews)</span>
-            </div>
-
             {/* Price */}
             <PriceDisplay
               price={selectedVariant.price}
@@ -148,9 +141,11 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
             </p>
           </div>
 
-          {/* Variant Selection */}
+          {/* Variant Selection — skip Shopify's single "Default Title" pseudo-option */}
           <div className="space-y-6">
-            {Object.entries(variantOptions).map(([optionName, optionValues]) => (
+            {Object.entries(variantOptions)
+              .filter(([optionName, optionValues]) => !(optionName === 'Title' && optionValues.size === 1 && optionValues.has('Default Title')))
+              .map(([optionName, optionValues]) => (
               <div key={optionName}>
                 <h3 className="text-lg font-semibold text-charcoal-900 mb-3">
                   {optionName}: <span className="font-normal">{getSelectedOptions()[optionName]}</span>
@@ -257,13 +252,13 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                Premium ring-spun cotton
+                Authentic Richardson 112 trucker hat
               </li>
               <li className="flex items-center">
                 <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                Water-based inks for softness
+                Embroidered Salted Soul logo, structured six-panel fit
               </li>
               <li className="flex items-center">
                 <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
@@ -275,7 +270,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                Machine wash cold, hang dry
+                Adjustable snapback — one size fits most
               </li>
             </ul>
           </div>
