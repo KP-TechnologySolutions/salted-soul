@@ -33,10 +33,10 @@ export default function HatsPage() {
         <div className="container-wide">
           <div className="rounded-2xl overflow-hidden shadow-[var(--shadow-lg)]">
             <Image
-              src="/hats-lineup-charleston.webp"
+              src="/salted-soul-hats-charleston.webp"
               alt="The five Salted Soul trucker hats lined up on a weathered dock table with the Ravenel Bridge and Charleston harbor at sunset behind them"
               width={1600}
-              height={901}
+              height={893}
               className="w-full h-auto"
               sizes="(max-width: 1280px) 100vw, 1200px"
               priority
