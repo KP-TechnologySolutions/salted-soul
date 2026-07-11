@@ -117,9 +117,6 @@ export default function HomePage() {
                 Where Charleston charm meets Kingdom calling. This isn&apos;t just a hat — it&apos;s a conversation
                 starter about the God who makes all things beautiful.
               </p>
-              <div className="price-info">
-                <div className="price">$32.00</div>
-              </div>
               <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
                 <Link href="/shop/hats" className="btn btn-primary">Shop the Hats</Link>
                 <Link href="/story" className="btn btn-outline" style={{ color: 'var(--ocean)', borderColor: 'var(--ocean)' }}>Our Story</Link>
