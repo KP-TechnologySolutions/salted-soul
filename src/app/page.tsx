@@ -16,7 +16,7 @@ import {
 export default function HomePage() {
   // Pull real products from the live catalog (hats today) rather than hardcoded
   // placeholders, so the homepage only ever shows items customers can actually buy.
-  const bestSellers = products.slice(0, 4).map((p) => ({
+  const bestSellers = products.slice(0, 5).map((p) => ({
     name: p.name,
     price: p.price,
     image: p.images?.[0]?.url ?? '/salted_soul_logo.webp',
@@ -46,7 +46,7 @@ export default function HomePage() {
               <span className="highlight">authentic faith</span>
             </h1>
             <p>
-              Faith-inspired designs that spark real conversations. Every purchase supports local ministries.
+              Faith-inspired designs that spark real conversations.
             </p>
 
             <div className="hero-buttons">
@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="container-wide">
           <Reveal className="section-header">
             <h2 className="section-title">Our handcrafted hats</h2>
-            <p className="section-subtitle">Made by hand in Charleston — ready to ship today</p>
+            <p className="section-subtitle">Made by hand in Charleston, SC — ready to ship today</p>
           </Reveal>
 
           <div className="products-grid">
@@ -94,7 +94,6 @@ export default function HomePage() {
                   <h3 className="product-name">{product.name}</h3>
                   <div className="product-pricing">
                     <div className="product-price">${product.price.toFixed(2)}</div>
-                    <div className="product-ministry">${product.ministry.toFixed(2)} supports ministries</div>
                   </div>
                   <Link href={product.href} className="btn btn-primary" style={{ width: '100%' }}>
                     View — ${product.price}
@@ -117,11 +116,10 @@ export default function HomePage() {
               <h2>Charleston Snapback</h2>
               <p>
                 Where Charleston charm meets Kingdom calling. This isn&apos;t just a hat — it&apos;s a conversation
-                starter about the God who makes all things beautiful, including the Holy City we call home.
+                starter about the God who makes all things beautiful.
               </p>
               <div className="price-info">
                 <div className="price">$32.00</div>
-                <div className="ministry-support">$3.20 supports local ministries</div>
               </div>
               <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
                 <Link href="/shop/hats" className="btn btn-primary">Shop the Hats</Link>
@@ -171,16 +169,16 @@ export default function HomePage() {
           <Reveal className="section-header">
             <h2 className="section-title" style={{ color: 'white' }}>Live your faith in style</h2>
             <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.82)' }}>
-              See how Salted Soul apparel looks in real Charleston life — clothing designed to spark
+              See how Salted Soul apparel looks in real Charleston, SC life — clothing designed to spark
               meaningful conversations and represent your faith with authentic coastal style.
             </p>
           </Reveal>
 
           <div className="lifestyle-gallery">
             {[
-              { src: '/lifestyle/charleston-lifestyle-1.png', alt: 'Charleston Rainbow Row Christian lifestyle', title: 'Rainbow Row Faith', subtitle: 'Historic Charleston meets modern ministry' },
-              { src: '/lifestyle/charleston-lifestyle-2.png', alt: 'Charleston harbor sunset ministry', title: 'Harbor Reflections', subtitle: 'Peaceful moments with purposeful faith' },
-              { src: '/lifestyle/chatgpt-charleston-1.png', alt: 'Charleston Christian lifestyle', title: 'Southern Faith', subtitle: 'Authentic Charleston Christian culture' },
+              { src: '/lifestyle/charleston-lifestyle-1.png', alt: 'Charleston, SC Rainbow Row Christian lifestyle', title: 'Rainbow Row Faith', subtitle: 'Historic Charleston, SC meets modern ministry' },
+              { src: '/lifestyle/charleston-lifestyle-2.png', alt: 'Charleston, SC harbor sunset ministry', title: 'Harbor Reflections', subtitle: 'Peaceful moments with purposeful faith' },
+              { src: '/lifestyle/chatgpt-charleston-1.png', alt: 'Charleston, SC Christian lifestyle', title: 'Southern Faith', subtitle: 'Authentic Charleston, SC Christian culture' },
             ].map((item, index) => (
               <Reveal key={item.title} index={index} className="lifestyle-image">
                 <Image src={item.src} alt={item.alt} width={400} height={600} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -198,10 +196,10 @@ export default function HomePage() {
       <section className="section mission-section">
         <div className="container-wide">
           <Reveal className="section-header">
-            <h2 className="section-title" style={{ color: 'white' }}>Where faith meets the surf</h2>
+            <h2 className="section-title" style={{ color: 'white' }}>Where faith meets the coast</h2>
             <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.82)' }}>
-              Founded by Mark in Charleston, South Carolina, Salted Soul began with a simple belief:
-              that our faith should be as natural and flowing as the ocean waves.
+              Founded by Mark and Carol in Charleston, South Carolina, Salted Soul began with a simple belief:
+              that our faith should be as natural and flowing as the ocean tides.
             </p>
           </Reveal>
 

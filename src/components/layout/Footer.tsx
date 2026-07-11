@@ -28,8 +28,8 @@ const Footer: React.FC = () => {
 
               {/* Description */}
               <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
-                Christian apparel with authentic surf soul. Faith-rooted designs 
-                crafted to share Jesus and build His kingdom through meaningful conversations.
+                Christian apparel with authentic, faith-rooted designs crafted to share Jesus
+                and build His kingdom through meaningful conversations.
               </p>
 
               {/* Social Links */}

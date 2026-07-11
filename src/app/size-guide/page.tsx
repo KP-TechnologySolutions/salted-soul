@@ -107,7 +107,7 @@ export default function SizeGuidePage() {
                   <h3 className="font-semibold text-ocean-800 mb-3">Coastal Comfort</h3>
                   <p className="text-ocean-700">
                     Relaxed fit inspired by beach culture - not too tight, not too loose.
-                    Perfect for Charleston humidity and coastal adventures.
+                    Perfect for Charleston, SC humidity and coastal adventures.
                   </p>
                 </div>
               </div>
