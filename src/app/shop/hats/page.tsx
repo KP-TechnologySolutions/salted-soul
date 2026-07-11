@@ -19,11 +19,11 @@ export default function HatsPage() {
       <section className="bg-gradient-sand py-16">
         <div className="container-wide text-center">
           <h1 className="heading-primary mb-6">
-            Christian hats &amp; caps
+            Christian hats
           </h1>
           <p className="text-xl text-charcoal-600 max-w-2xl mx-auto">
-            Top off your faith with our collection of Christian hats and caps. 
-            From trucker hats to snapbacks, each design sparks conversations about Jesus.
+            Top off your faith with our collection of Christian hats. Wear the message.
+            Share the hope. Start a conversation about Jesus.
           </p>
         </div>
       </section>
