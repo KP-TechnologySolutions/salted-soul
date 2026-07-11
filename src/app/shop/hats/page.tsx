@@ -30,20 +30,22 @@ export default function HatsPage() {
 
       {/* The lineup feature */}
       <section className="section-padding-sm">
-        <div className="container-wide grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-[3/4] w-full max-w-md mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-[var(--shadow-lg)]">
+        <div className="container-wide">
+          <div className="rounded-2xl overflow-hidden shadow-[var(--shadow-lg)]">
             <Image
-              src="/hats-lineup.webp"
-              alt="The Salted Soul hat lineup in five colorways lined up on a stone wall"
-              fill
-              className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 28rem"
+              src="/hats-lineup-charleston.webp"
+              alt="The five Salted Soul trucker hats lined up on a weathered dock table with the Ravenel Bridge and Charleston harbor at sunset behind them"
+              width={1600}
+              height={901}
+              className="w-full h-auto"
+              sizes="(max-width: 1280px) 100vw, 1200px"
+              priority
             />
           </div>
-          <div>
+          <div className="text-center max-w-2xl mx-auto mt-10">
             <h2 className="heading-secondary mb-4">Five colorways, one message</h2>
-            <p className="text-charcoal-600 leading-relaxed mb-6 max-w-[58ch]">
-              From navy to coral to sand, every Salted Soul cap carries the same circle logo and the same
+            <p className="text-charcoal-600 leading-relaxed mb-6 mx-auto max-w-[58ch]">
+              From navy to sand to sky, every Salted Soul cap carries the same circle logo and the same
               heart: faith you can wear anywhere the day takes you. Structured trucker and snapback fits, built
               for sun, salt, and real conversations.
             </p>
