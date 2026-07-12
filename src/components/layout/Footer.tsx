@@ -19,9 +19,9 @@ const Footer: React.FC = () => {
                 <Image
                   src="/logo-original.webp"
                   alt="Salted Soul"
-                  width={48}
-                  height={48}
-                  className="h-12 w-12 object-contain"
+                  width={96}
+                  height={96}
+                  className="h-20 w-20 object-contain"
                 />
                 <span className="text-2xl font-bold">Salted Soul</span>
               </Link>
