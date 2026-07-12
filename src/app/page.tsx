@@ -172,7 +172,7 @@ export default function HomePage() {
 
           <div className="lifestyle-gallery">
             {[
-              { src: '/lifestyle/charleston-lifestyle-1.png', alt: 'Charleston, SC Rainbow Row Christian lifestyle', title: 'Rainbow Row Faith', subtitle: 'Historic Charleston, SC meets modern ministry' },
+              { src: '/lifestyle/rainbow-row-salted-soul.webp', alt: 'A woman in a Salted Soul hat smiling on Charleston, SC Rainbow Row at golden hour', title: 'Rainbow Row Faith', subtitle: 'Historic Charleston, SC meets modern ministry' },
               { src: '/lifestyle/charleston-lifestyle-2.png', alt: 'Charleston, SC harbor sunset ministry', title: 'Harbor Reflections', subtitle: 'Peaceful moments with purposeful faith' },
               { src: '/lifestyle/chatgpt-charleston-1.png', alt: 'Charleston, SC Christian lifestyle', title: 'Southern Faith', subtitle: 'Authentic Charleston, SC Christian culture' },
             ].map((item, index) => (
