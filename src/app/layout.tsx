@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Fraunces, Outfit } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import SimpleHeader from '@/components/layout/SimpleHeader'
 import Footer from '@/components/layout/Footer'
@@ -139,6 +140,18 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* Google Analytics (GA4) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TF6EYQTH19"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-TF6EYQTH19');`}
+        </Script>
       </body>
     </html>
   )
