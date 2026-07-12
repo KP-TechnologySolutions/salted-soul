@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { getPostSlugs } from '@/lib/posts'
 
 // Required for `output: export` (static site).
 export const dynamic = 'force-static'
@@ -12,6 +13,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/shop/hats',
     '/shop/new-arrivals',
     '/shop/best-sellers',
+    '/seasoned',
+    ...getPostSlugs().map((slug) => `/seasoned/${slug}`),
     '/story',
     '/contact',
     '/size-guide',

@@ -1197,3 +1197,38 @@ header {
 .policy-body strong { font-weight: 600; color: var(--charcoal-900, #1a2b32); }
 .policy-body br { line-height: 1.6; }
 .policy-body :first-child { margin-top: 0; }
+
+/* "Seasoned" blog article body (renders Markdown → HTML from content/seasoned) */
+.post-body { font-size: 1.075rem; line-height: 1.75; }
+.post-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--charcoal-900, #1a2b32);
+  line-height: 1.25;
+  margin: 2.5rem 0 1rem;
+}
+.post-body h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--charcoal-900, #1a2b32);
+  margin: 1.75rem 0 0.75rem;
+}
+.post-body p { margin-bottom: 1.25rem; }
+.post-body ul, .post-body ol { margin: 0 0 1.25rem 1.4rem; }
+.post-body ul { list-style: disc; }
+.post-body ol { list-style: decimal; }
+.post-body li { margin-bottom: 0.5rem; }
+.post-body a { color: var(--ocean, #2c7a7b); text-decoration: underline; font-weight: 500; }
+.post-body strong { font-weight: 600; color: var(--charcoal-900, #1a2b32); }
+.post-body blockquote {
+  border-left: 4px solid var(--ocean, #2c7a7b);
+  background: var(--surface, #faf7f2);
+  padding: 1rem 1.5rem;
+  margin: 1.75rem 0;
+  font-style: italic;
+  color: var(--charcoal-800, #33454d);
+  border-radius: 0 12px 12px 0;
+}
+.post-body blockquote p { margin: 0; }
+.post-body :first-child { margin-top: 0; }

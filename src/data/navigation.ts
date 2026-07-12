@@ -149,6 +149,7 @@ export const footerNavigation = {
     { name: 'Contact', href: '/contact' },
   ],
   support: [
+    { name: 'Seasoned', href: '/seasoned' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Shipping Info', href: '/shipping' },
     { name: 'Returns', href: '/returns' },
