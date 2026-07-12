@@ -18,8 +18,7 @@ const navLinks = [
 
 export default function SimpleHeader() {
   const [open, setOpen] = useState(false)
-  const [cartOpen, setCartOpen] = useState(false)
-  const { state } = useCart()
+  const { state, isOpen: cartOpen, openCart, closeCart } = useCart()
 
   return (
     <header>
@@ -55,7 +54,7 @@ export default function SimpleHeader() {
             type="button"
             className="cart-btn"
             aria-label={`Open cart${state.totalItems ? `, ${state.totalItems} item${state.totalItems === 1 ? '' : 's'}` : ''}`}
-            onClick={() => setCartOpen(true)}
+            onClick={openCart}
           >
             <ShoppingBag size={22} strokeWidth={1.75} />
             {state.totalItems > 0 && <span className="cart-count">{state.totalItems}</span>}
@@ -85,7 +84,7 @@ export default function SimpleHeader() {
       </div>
 
       {/* Cart drawer (Shopify-hosted checkout handoff) */}
-      <CartDrawer isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+      <CartDrawer isOpen={cartOpen} onClose={closeCart} />
     </header>
   )
 }

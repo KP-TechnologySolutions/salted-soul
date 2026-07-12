@@ -3,8 +3,9 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { cn } from '@/lib/utils'
+import { cn, generateId } from '@/lib/utils'
 import { Product } from '@/types/product'
+import { useCart } from '@/lib/cart-context'
 import Badge from '@/components/ui/Badge'
 import PriceDisplay from '@/components/ui/PriceDisplay'
 import Button from '@/components/ui/Button'
@@ -24,6 +25,34 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const primaryImage = product.images[0]
   const secondaryImage = product.images[1] // For hover effect
+  const { addItem, openCart } = useCart()
+
+  const handleQuickAdd = (e: React.MouseEvent) => {
+    e.preventDefault()
+    const variant = product.variants[0]
+    if (!variant) return
+    addItem({
+      id: generateId(),
+      productId: product.id,
+      variantId: variant.id,
+      quantity: 1,
+      product: {
+        id: product.id,
+        name: product.name,
+        slug: product.slug,
+        image: primaryImage.url,
+        category: product.category.name,
+      },
+      variant: {
+        id: variant.id,
+        name: variant.name,
+        price: variant.price,
+        compareAtPrice: variant.compareAtPrice,
+        options: variant.options,
+      },
+    })
+    openCart()
+  }
 
   return (
     <div className={cn(
@@ -83,10 +112,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 variant="primary" 
                 size="medium" 
                 className="w-full"
-                onClick={(e) => {
-                  e.preventDefault()
-                  // Quick add to cart logic here
-                }}
+                onClick={handleQuickAdd}
               >
                 Quick Add
               </Button>

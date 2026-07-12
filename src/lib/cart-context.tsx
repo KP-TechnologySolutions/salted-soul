@@ -1,6 +1,6 @@
 'use client'
 
-import React, { createContext, useContext, useReducer, ReactNode } from 'react'
+import React, { createContext, useContext, useReducer, useState, ReactNode } from 'react'
 import { Cart, CartItem } from '@/types/cart'
 
 interface CartState extends Cart {}
@@ -112,10 +112,17 @@ const CartContext = createContext<{
   updateQuantity: (id: string, quantity: number) => void
   clearCart: () => void
   applyDiscount: (code: string, amount: number) => void
+  isOpen: boolean
+  openCart: () => void
+  closeCart: () => void
 } | null>(null)
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, initialState)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const openCart = () => setIsOpen(true)
+  const closeCart = () => setIsOpen(false)
 
   const addItem = (item: CartItem) => {
     dispatch({ type: 'ADD_ITEM', payload: item })
@@ -144,7 +151,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
       removeItem,
       updateQuantity,
       clearCart,
-      applyDiscount
+      applyDiscount,
+      isOpen,
+      openCart,
+      closeCart
     }}>
       {children}
     </CartContext.Provider>
