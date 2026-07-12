@@ -52,6 +52,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  // Google Search Console verification (URL-prefix / HTML-tag method)
+  verification: {
+    google: 'Modl_RfMJsVHayI6qPeWY9WZZE4EqBZ_fyLTsxQSbDM',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
