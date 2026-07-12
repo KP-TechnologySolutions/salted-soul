@@ -1,7 +1,13 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Button from '@/components/ui/Button'
+
+// Submissions post to the KP portal's public lead-intake endpoint, which emails
+// mark@saltedsoulsc.com and logs the message in the KP dashboard. Guarded by a
+// per-org intake key (org-scoped) + honeypot + timing anti-spam.
+const INTAKE_URL = 'https://portal.kptechnologysolutions.com/api/leads/intake'
+const INTAKE_KEY = process.env.NEXT_PUBLIC_LEADS_INTAKE_KEY || ''
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -9,10 +15,17 @@ const ContactForm: React.FC = () => {
     email: '',
     subject: '',
     message: '',
-    reason: 'general'
+    reason: 'general',
+    website: '', // honeypot — real users leave this empty
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const formStart = useRef(0)
+
+  useEffect(() => {
+    formStart.current = Date.now()
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
@@ -23,13 +36,38 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError(null)
     setIsSubmitting(true)
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      const res = await fetch(INTAKE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          organization: 'salted-soul',
+          intake_key: INTAKE_KEY,
+          name: formData.name,
+          email: formData.email,
+          service: formData.reason,
+          message: `Subject: ${formData.subject}\n\n${formData.message}`,
+          website: formData.website,
+          formStart: formStart.current,
+        }),
+      })
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok || data?.ok === false) {
+        throw new Error(data?.error || 'Something went wrong. Please try again.')
+      }
       setIsSubmitted(true)
-    }, 1000)
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? `${err.message} You can also email us directly at mark@saltedsoulsc.com.`
+          : 'Could not send your message. Please email mark@saltedsoulsc.com.'
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -51,6 +89,18 @@ const ContactForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Honeypot — hidden from real users, catches bots */}
+      <input
+        type="text"
+        name="website"
+        value={formData.website}
+        onChange={handleChange}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="hidden"
+      />
+
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-semibold text-charcoal-900 mb-2">
@@ -140,6 +190,11 @@ const ContactForm: React.FC = () => {
           placeholder="Tell us more about your question or how we can help..."
         />
       </div>
+
+      {/* Error */}
+      {error && (
+        <p className="text-sm text-red-600 text-center">{error}</p>
+      )}
 
       {/* Submit Button */}
       <Button
