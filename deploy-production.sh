@@ -22,7 +22,7 @@ LOCAL_DIR="$(cd "$(dirname "$0")" && pwd)/out"
 
 echo "==> Building static export (pulls live Shopify catalog via prebuild)"
 npm run build
-find out -name "*.txt" -delete   # strip RSC .txt files (not for production)
+find out -name "*.txt" ! -name "robots.txt" -delete   # strip RSC .txt files, but KEEP robots.txt
 
 echo "==> Deploying $LOCAL_DIR -> $USER@$HOST:$REMOTE_DIR (SFTP)"
 lftp -u "$USER,$DH_PASS" "sftp://$HOST" -e "
