@@ -23,6 +23,26 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 
+  // Reset the checkout button whenever the drawer (re)opens — otherwise it can
+  // stay stuck on the disabled "Starting checkout…" state after a buyer clicks
+  // checkout and then navigates Back from Shopify.
+  useEffect(() => {
+    if (isOpen) {
+      setCheckingOut(false)
+      setCheckoutError(null)
+    }
+  }, [isOpen])
+
+  // Same fix for the back/forward cache: when the page is restored from bfcache
+  // (Back button from Shopify checkout), clear the stuck loading state.
+  useEffect(() => {
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) setCheckingOut(false)
+    }
+    window.addEventListener('pageshow', onPageShow)
+    return () => window.removeEventListener('pageshow', onPageShow)
+  }, [])
+
   const handleCheckout = async () => {
     setCheckoutError(null)
 
