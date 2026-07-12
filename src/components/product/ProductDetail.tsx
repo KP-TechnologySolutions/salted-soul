@@ -134,11 +134,6 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
               size="large"
               className="mb-6"
             />
-
-            {/* Description */}
-            <p className="text-lg text-charcoal-600 leading-relaxed mb-8">
-              {product.description}
-            </p>
           </div>
 
           {/* Variant Selection — skip Shopify's single "Default Title" pseudo-option */}
@@ -248,30 +243,20 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
           <div className="border-t pt-8">
             <h3 className="text-lg font-semibold text-charcoal-900 mb-4">Product Features</h3>
             <ul className="space-y-2 text-charcoal-600">
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                Authentic Richardson 112 trucker hat
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                Embroidered Salted Soul logo, structured six-panel fit
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                Designed for ministry conversations
-              </li>
-              <li className="flex items-center">
-                <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-                Adjustable snapback — one size fits most
-              </li>
+              {[
+                'Authentic Richardson 112 trucker hat',
+                'Adjustable snapback - one size fits most',
+                'Structured six-panel fit',
+                'Mid Pro profile',
+                'Precurved Bill',
+              ].map((feature) => (
+                <li key={feature} className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  {feature}
+                </li>
+              ))}
             </ul>
           </div>
 

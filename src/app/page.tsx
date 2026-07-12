@@ -67,7 +67,7 @@ export default function HomePage() {
           <div className="badges-container">
             <div className="badge"><Truck width={18} height={18} /><span>Free shipping over $70</span></div>
             <div className="badge"><HandHeart width={18} height={18} /><span>10% supports local ministries</span></div>
-            <div className="badge"><Wave width={16} height={16} /><span>Handcrafted in Charleston, SC</span></div>
+            <div className="badge"><Wave width={16} height={16} /><span>Inspired &amp; Designed in Charleston, SC</span></div>
           </div>
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function HomePage() {
                     <div className="product-price">${product.price.toFixed(2)}</div>
                   </div>
                   <Link href={product.href} className="btn btn-primary" style={{ width: '100%' }}>
-                    View — ${product.price}
+                    View
                   </Link>
                 </div>
               </Reveal>

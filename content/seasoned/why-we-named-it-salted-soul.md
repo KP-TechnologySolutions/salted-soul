@@ -34,7 +34,7 @@ Paul says something similar in Colossians 4:6: *"Let your conversation be always
 
 ## Why "Soul"
 
-The "soul" half is the personal part. This isn't a costume you put on. It's not a brand identity you wear to look a certain way. It's who you actually are underneath — the part of you that God made and calls his own.
+The "soul" half is the personal part. This isn't a costume you put on. It's not a brand identity you wear to look a certain way. It's who you actually are underneath — the part of you that God made and calls His own.
 
 So when we put those two words together, *Salted Soul* became a picture of the kind of life we're after: someone whose faith isn't hidden or preachy, but woven into how they live — adding flavor, preserving what's good, and quietly making the people around them thirsty for the hope they carry.
 

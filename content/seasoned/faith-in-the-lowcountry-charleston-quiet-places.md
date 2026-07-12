@@ -20,13 +20,11 @@ The good news is the Lowcountry is full of still. You just have to know where to
 
 There's something about the pluff mud and the tall grass when the water pulls back that quiets your brain down. The birds work the flats, the light goes gold, and everything smells like the ocean deciding what to do next. We'll park somewhere off the causeway, roll the windows down, and just sit for a while. It's hard to stay anxious watching the tide do the same faithful thing it's done every day for thousands of years.
 
-*"He makes me lie down in green pastures, he leads me beside quiet waters."* The Lowcountry has its own version of that verse.
+*"He makes me lie down in green pastures, he leads me beside still waters."* — Psalm 23:2. The Lowcountry has its own version of that verse.
 
 ## A pier at sunrise
 
-Everybody knows the beach at sunset. Fewer people know it at sunrise, and that's exactly why it's better. Get out to Folly or Sullivan's early enough and you'll basically have the whole thing to yourself — a couple of surfers, an old guy with a fishing rod, and the sun coming up over the water like it's the first time it's ever done it.
-
-We've prayed some of our most honest prayers standing on a pier at 6 a.m. with nobody around to perform for.
+Many people know the beach at sunset. Fewer know it at sunrise. Get out to Folly or Sullivan's early enough and you'll basically have the whole thing to yourself — a couple of surfers, an old guy with a fishing rod, and the sun coming up over the water like it's the first time it's ever done it.
 
 ## Under the Angel Oak
 

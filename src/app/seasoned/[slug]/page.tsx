@@ -80,7 +80,7 @@ export default async function PostPage({ params }: Params) {
         <div className="container-narrow text-center">
           <h2 className="heading-secondary mb-3">Wear the message. Start the conversation.</h2>
           <p className="text-charcoal-600 mb-6 max-w-xl mx-auto">
-            Faith-forward hats, handcrafted in Charleston, SC — designed to spark real conversations.
+            Faith-forward hats, inspired in Charleston, SC — designed to spark real conversations.
           </p>
           <Link href="/shop/hats" className="btn btn-primary">Shop the hats</Link>
         </div>

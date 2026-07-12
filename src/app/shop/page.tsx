@@ -65,7 +65,7 @@ export default function ShopPage() {
               </div>
               <h3 className="font-semibold text-charcoal-900 mb-2">Kingdom Impact</h3>
               <p className="text-charcoal-600 text-sm">
-                10% of profits support local ministries and church plants. Your purchase builds the Kingdom.
+                10% of profits support local ministries. Your purchase helps build The Kingdom.
               </p>
             </div>
           </div>

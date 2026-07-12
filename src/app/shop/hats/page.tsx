@@ -46,7 +46,7 @@ export default function HatsPage() {
             <h2 className="heading-secondary mb-4">Five colorways, one message</h2>
             <p className="text-charcoal-600 leading-relaxed mb-6 mx-auto max-w-[58ch]">
               From navy to sand to sky, every Salted Soul cap carries the same circle logo and the same
-              heart: faith you can wear anywhere the day takes you. Structured trucker and snapback fits, built
+              heart: faith you can wear anywhere the day takes you. Structured trucker and snapback fit, built
               for sun, salt, and real conversations.
             </p>
             <a href="#hats" className="btn btn-primary">Shop the lineup</a>

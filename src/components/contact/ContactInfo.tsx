@@ -47,14 +47,14 @@ const ContactInfo: React.FC = () => {
 
       {/* Mark's Personal Touch */}
       <div className="bg-ocean-50 rounded-xl p-6 border border-ocean-100">
-        <h3 className="font-semibold text-charcoal-900 mb-3">A Personal Note from Mark</h3>
+        <h3 className="font-semibold text-charcoal-900 mb-3">A Personal Note from Mark and Carol</h3>
         <p className="text-charcoal-600 leading-relaxed mb-4">
-          "Every message matters to me personally. Whether you're sharing how our apparel 
-          opened a door for ministry or you have feedback on how we can better serve the body 
-          of Christ, I want to hear from you."
+          "Every message matters to us personally. Whether you're sharing how our apparel
+          opened a door for ministry or you have feedback on how we can better serve the body
+          of Christ, we want to hear from you."
         </p>
         <p className="text-ocean-600 font-medium">
-          — Mark, Founder & Owner
+          — Mark and Carol, Founders &amp; Owners
         </p>
       </div>
 

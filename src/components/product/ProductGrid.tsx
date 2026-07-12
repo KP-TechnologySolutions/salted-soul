@@ -98,7 +98,6 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
             { key: 'all', label: 'All Products' },
             { key: 'new', label: 'New Arrivals' },
             { key: 'bestseller', label: 'Bestsellers' },
-            { key: 'sale', label: 'Sale' },
           ].map(filter => (
             <Button
               key={filter.key}
@@ -188,17 +187,6 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
         </div>
       )}
 
-      {/* Scripture Section */}
-      <div className="mt-20 text-center bg-ocean-50 rounded-2xl p-12">
-        <blockquote className="text-xl italic text-charcoal-800 mb-4 max-w-3xl mx-auto">
-          "Let your light shine before others, that they may see your good deeds 
-          and glorify your Father in heaven."
-        </blockquote>
-        <cite className="text-ocean-600 font-semibold">— Matthew 5:16</cite>
-        <p className="text-charcoal-600 mt-4">
-          Every piece you wear is an opportunity to share the love of Jesus.
-        </p>
-      </div>
     </div>
   )
 }
