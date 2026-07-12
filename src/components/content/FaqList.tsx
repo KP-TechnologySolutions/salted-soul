@@ -13,7 +13,7 @@ const FAQS: Faq[] = [
   { cat: 'Shipping', q: 'Do you offer free shipping?', a: 'Yes. Shipping is free on U.S. orders over $70. Orders under $70 are charged a flat rate calculated at checkout.' },
   { cat: 'Orders', q: 'What payment methods do you accept?', a: 'Checkout is handled securely by Shopify, so all major credit and debit cards (and the wallets your device supports) work at checkout.' },
   { cat: 'Orders', q: 'What is your return policy?', a: 'We offer free size exchanges and returns within 30 days on unworn items with tags attached. The Returns page walks through every step.' },
-  { cat: 'Mission', q: 'How does the ministry give-back work?', a: '10% of profits support local ministries and church plants. Every purchase helps fund the Great Commission. It is baked into who we are.' },
+  { cat: 'Mission', q: 'How does the ministry give-back work?', a: '10% of profits support local ministries. Every purchase helps fund the Great Commission. It is baked into who we are.' },
   { cat: 'Sizing', q: 'How should I care for my apparel?', a: 'Machine wash cold inside out, tumble dry low, and avoid ironing directly over printed designs. This keeps colors and prints looking their best.' },
   { cat: 'Mission', q: 'Can you outfit my church or ministry team?', a: 'Absolutely. We offer special pricing and custom design services for churches, youth groups, and ministry teams. Reach out and we will help.' },
 ]

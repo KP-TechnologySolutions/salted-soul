@@ -74,8 +74,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    site: '@saltedsoul',
-    creator: '@saltedsoul',
     title: 'Salted Soul - Christian Apparel with Soul & Salt',
     description: 'Christian apparel with authentic, faith-rooted designs. Bold faith meets coastal style.',
     images: ['/og-image.jpg'],
@@ -129,6 +127,10 @@ export default function RootLayout({
               name: 'Salted Soul',
               description: 'Christian apparel with authentic, faith-rooted designs',
               url: 'https://saltedsoulsc.com',
+              sameAs: [
+                'https://www.facebook.com/SaltedSoulSC',
+                'https://www.instagram.com/saltedsoulsc/',
+              ],
               logo: 'https://saltedsoulsc.com/salted_soul_logo.webp',
               contactPoint: {
                 '@type': 'ContactPoint',

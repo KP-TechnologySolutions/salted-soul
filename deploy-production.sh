@@ -22,7 +22,11 @@ LOCAL_DIR="$(cd "$(dirname "$0")" && pwd)/out"
 
 echo "==> Building static export (pulls live Shopify catalog via prebuild)"
 npm run build
-find out -name "*.txt" ! -name "robots.txt" -delete   # strip RSC .txt files, but KEEP robots.txt
+# NOTE: we intentionally KEEP the .txt files. The `*/index.txt` files are Next's
+# App Router RSC prefetch payloads — stripping them 404s on every page and
+# disables link prefetch (slower navigation). This is an automated deploy (the
+# out/ folder is never opened in Finder), so the old "clutter" reason doesn't
+# apply. robots.txt is also a .txt and must ship.
 
 echo "==> Deploying $LOCAL_DIR -> $USER@$HOST:$REMOTE_DIR (SFTP)"
 lftp -u "$USER,$DH_PASS" "sftp://$HOST" -e "
