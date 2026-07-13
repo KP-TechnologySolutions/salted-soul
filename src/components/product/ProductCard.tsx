@@ -142,13 +142,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </h3>
         </Link>
 
-        {/* Short Description */}
-        {product.shortDescription && (
-          <p className="text-sm text-gray-600 line-clamp-2">
-            {product.shortDescription}
-          </p>
-        )}
-
         {/* Price */}
         <PriceDisplay
           price={product.price}
