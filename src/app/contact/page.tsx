@@ -17,8 +17,7 @@ export default function ContactPage() {
             Get in touch
           </h1>
           <p className="text-xl text-charcoal-600 max-w-2xl mx-auto">
-            Have questions about our Christian apparel? Want to share your faith story? 
-            We'd love to hear from you and connect with fellow believers.
+            Have questions about our Christian apparel?
           </p>
         </div>
       </section>
