@@ -57,7 +57,7 @@ export default function ContactPage() {
             {[
               {
                 question: "What makes Salted Soul different from other apparel brands?",
-                answer: "We're faith-first in everything we do. Every design is created to spark meaningful conversations about Jesus, and 10% of our profits support local ministries. We're not just selling clothes—we're building The Kingdom."
+                answer: "We're faith-first in everything we do. Every design is created to spark meaningful conversations about Jesus, and 10% of our profits support local ministries. We're not just selling apparel—we're building The Kingdom."
               },
               {
                 question: "What is your return policy?",
@@ -66,10 +66,6 @@ export default function ContactPage() {
               {
                 question: "Do you offer bulk discounts for churches or ministries?",
                 answer: "Absolutely! We love supporting churches, youth groups, and ministry teams. Contact us directly for volume pricing and custom design options for your ministry."
-              },
-              {
-                question: "How do I care for my Salted Soul apparel?",
-                answer: "Machine wash cold with like colors, hang dry or tumble dry low. Our water-based inks are designed to last, but gentle care helps maintain the vibrant designs and soft feel."
               },
               {
                 question: "Can I track my order?",
