@@ -138,6 +138,19 @@ const Footer: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Agency credit */}
+          <p className="mt-6 text-center text-xs text-gray-500">
+            Website by{' '}
+            <a
+              href="https://www.kptechnologysolutions.com/"
+              target="_blank"
+              rel="noopener"
+              className="text-gray-400 hover:text-white transition-colors"
+            >
+              KP Technology Solutions LLC
+            </a>
+          </p>
         </div>
       </div>
     </footer>
