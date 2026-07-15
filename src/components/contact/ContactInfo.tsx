@@ -36,10 +36,14 @@ const ContactInfo: React.FC = () => {
             </svg>
           </div>
           <div>
-            <h3 className="font-semibold text-charcoal-900 mb-1">Visit Us</h3>
-            <p className="text-charcoal-600">
-              Charleston, South Carolina<br />
-              Our coastal home base
+            <h3 className="font-semibold text-charcoal-900 mb-1">Mailing Address</h3>
+            <address className="not-italic text-charcoal-600">
+              3022 S Morgans Point Rd, #120<br />
+              Mt Pleasant, SC 29466
+            </address>
+            <p className="text-sm text-charcoal-500 mt-2">
+              For mail and correspondence — not a retail location.
+              Email is the fastest way to reach us.
             </p>
           </div>
         </div>

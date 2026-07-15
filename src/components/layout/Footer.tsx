@@ -32,6 +32,12 @@ const Footer: React.FC = () => {
                 and build His kingdom through meaningful conversations.
               </p>
 
+              {/* Address */}
+              <address className="not-italic text-gray-400 leading-relaxed mb-6">
+                3022 S Morgans Point Rd, #120<br />
+                Mt Pleasant, SC 29466
+              </address>
+
               {/* Social Links */}
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (

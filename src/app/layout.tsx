@@ -139,8 +139,10 @@ export default function RootLayout({
               },
               address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'Charleston',
+                streetAddress: '3022 S Morgans Point Rd, #120',
+                addressLocality: 'Mt Pleasant',
                 addressRegion: 'SC',
+                postalCode: '29466',
                 addressCountry: 'US',
               },
             }),
