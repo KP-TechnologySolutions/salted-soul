@@ -107,6 +107,13 @@ export default function RootLayout({
           Skip to main content
         </a>
         
+        {/* Sitewide announcement (owner request 2026-08-20): tees launch teaser */}
+        <div className="announce-bar" role="status">
+          <span className="announce-main">Tees coming soon</span>
+          <span className="announce-heart" aria-hidden="true">🤍</span>
+          <span className="announce-tag">Stay salty.</span>
+        </div>
+
         <CartProvider>
           <SimpleHeader />
           

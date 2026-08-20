@@ -104,6 +104,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Tees coming soon (owner announcement, 2026-08-20) */}
+      <section className="tees-soon">
+        <div className="container-wide">
+          <Reveal>
+            <div className="tees-soon-icon">
+              <Tee width={26} height={26} />
+            </div>
+            <span className="tees-soon-overline">Next from Salted Soul</span>
+            <h2>
+              Tees coming soon <span aria-hidden="true">🤍</span>
+            </h2>
+            <p className="tees-soon-tag">Stay salty.</p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Featured Product */}
       <section className="section">
         <div className="container-wide">
