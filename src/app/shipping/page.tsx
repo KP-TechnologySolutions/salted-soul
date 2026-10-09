@@ -5,6 +5,7 @@ import ShopifyPolicy from '@/components/content/ShopifyPolicy'
 import { shopifyPolicies } from '@/data/policies.generated'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/shipping/' },
   title: 'Shipping Information',
   description: 'Shipping rates, processing times, and delivery details for Salted Soul orders.',
 }

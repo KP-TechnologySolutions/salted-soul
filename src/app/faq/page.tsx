@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import FaqList from '@/components/content/FaqList'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/faq/' },
   title: 'FAQ',
   description: 'Answers to common questions about Salted Soul apparel, shipping, returns, sizing, and our ministry give-back.',
 }

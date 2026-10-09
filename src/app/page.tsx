@@ -4,6 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import Reveal from '@/components/ui/Reveal'
+import EmailSignup from '@/components/sections/EmailSignup'
 import { products } from '@/data/products'
 import {
   Wave,
@@ -116,6 +117,7 @@ export default function HomePage() {
               Tees coming soon <span aria-hidden="true">🤍</span>
             </h2>
             <p className="tees-soon-tag">Stay salty.</p>
+            <EmailSignup prompt="Be the first to know when tees drop." placement="homepage_tees" />
           </Reveal>
         </div>
       </section>

@@ -4,6 +4,7 @@ import ProductGrid from '@/components/product/ProductGrid'
 import { products } from '@/data/products'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/shop/hats/' },
   title: 'Christian Hats & Caps | Salted Soul',
   description: 'Shop our collection of Christian hats and caps. Trucker hats, snapbacks, and baseball caps designed to share your faith with coastal style.',
   keywords: ['christian hats', 'faith caps', 'christian trucker hats', 'christian snapbacks', 'ministry hats'],

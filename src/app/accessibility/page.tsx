@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Reveal from '@/components/ui/Reveal'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/accessibility/' },
   title: 'Accessibility',
   description: 'Salted Soul’s commitment to an accessible, inclusive shopping experience for everyone.',
 }

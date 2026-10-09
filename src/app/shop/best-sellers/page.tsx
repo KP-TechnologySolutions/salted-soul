@@ -3,6 +3,7 @@ import ProductGrid from '@/components/product/ProductGrid'
 import { products } from '@/data/products'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/shop/best-sellers/' },
   title: 'Best Sellers | Salted Soul',
   description: 'Our most-loved coastal Christian apparel — the pieces the Salted Soul family keeps coming back to.',
 }

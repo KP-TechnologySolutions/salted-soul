@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useReducer, useState, ReactNode } from 'react'
 import { Cart, CartItem } from '@/types/cart'
+import { numericId, trackAddToCart } from '@/lib/analytics'
 
 interface CartState extends Cart {}
 
@@ -126,6 +127,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const addItem = (item: CartItem) => {
     dispatch({ type: 'ADD_ITEM', payload: item })
+    trackAddToCart({
+      item_id: numericId(item.productId),
+      item_name: item.product.name,
+      item_category: item.product.category,
+      item_variant: item.variant.name,
+      price: item.variant.price,
+      quantity: item.quantity,
+    })
   }
 
   const removeItem = (id: string) => {

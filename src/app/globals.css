@@ -683,6 +683,108 @@ h1, h2, h3, .section-title, .hero-content h1, .product-info h2,
   color: var(--sand);
 }
 
+/* Email list signup (tees band + footer) */
+.email-signup {
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+.email-signup-prompt {
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.email-signup-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.email-signup-form input[type='email'] {
+  flex: 1 1 14rem;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(233, 211, 163, 0.45);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink);
+  font: inherit;
+}
+
+.email-signup-form input[type='email']::placeholder {
+  color: var(--muted);
+}
+
+.email-signup-form input[type='email']:focus-visible,
+.email-signup-form button:focus-visible {
+  outline: 3px solid var(--sand);
+  outline-offset: 2px;
+}
+
+.email-signup-form button {
+  flex: 0 0 auto;
+  min-height: 48px;
+  padding: 0.75rem 1.35rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--sand);
+  color: var(--ocean-night);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+@media (max-width: 480px) {
+  .email-signup-form button {
+    flex-basis: 100%;
+  }
+}
+
+.email-signup-form button:hover {
+  background: #f2e2bf;
+}
+
+.email-signup-form button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.email-signup-note {
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.email-signup-msg {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--sand);
+}
+
+.email-signup-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.tees-soon .email-signup {
+  margin-top: 2.25rem;
+}
+
+.footer-signup .email-signup {
+  margin: 0 0 1.75rem;
+}
+
+.footer-signup .email-signup-prompt {
+  font-weight: 600;
+}
+
 /* Header Styling */
 header {
   background: rgba(255, 255, 255, 0.95);

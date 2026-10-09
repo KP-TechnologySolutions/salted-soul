@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useCart } from '@/lib/cart-context'
 import { createCart, isShopifyConfigured } from '@/lib/shopify/client'
+import { numericId, trackBeginCheckout } from '@/lib/analytics'
 import Button from '@/components/ui/Button'
 import PriceDisplay from '@/components/ui/PriceDisplay'
 
@@ -61,8 +62,19 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
           quantity: item.quantity,
         }))
       )
-      // Hand the buyer off to Shopify-hosted checkout.
-      window.location.href = cart.checkoutUrl
+      // Hand the buyer off to Shopify-hosted checkout (after GA records it).
+      trackBeginCheckout(
+        state.items.map((item) => ({
+          item_id: numericId(item.productId),
+          item_name: item.product.name,
+          item_category: item.product.category,
+          item_variant: item.variant.name,
+          price: item.variant.price,
+          quantity: item.quantity,
+        })),
+        state.subtotal,
+        () => { window.location.href = cart.checkoutUrl }
+      )
     } catch (err) {
       setCheckoutError(err instanceof Error ? err.message : 'Could not start checkout.')
       setCheckingOut(false)

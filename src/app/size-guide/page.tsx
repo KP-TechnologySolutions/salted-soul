@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import SizeChart from '@/components/size/SizeChart'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/size-guide/' },
   title: 'Size Guide | Salted Soul',
   description: 'Find your perfect fit with our interactive size guide for Christian apparel. Detailed measurements for all our shirts and accessories.',
 }

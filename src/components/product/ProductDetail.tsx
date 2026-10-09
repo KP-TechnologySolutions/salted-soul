@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Product } from '@/types/product'
 import { useCart } from '@/lib/cart-context'
@@ -8,6 +8,7 @@ import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
 import PriceDisplay from '@/components/ui/PriceDisplay'
 import { generateId } from '@/lib/utils'
+import { numericId, trackViewItem } from '@/lib/analytics'
 
 interface ProductDetailProps {
   product: Product
@@ -18,6 +19,15 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
   const [selectedVariant, setSelectedVariant] = useState(product.variants[0])
   const [quantity, setQuantity] = useState(1)
   const [selectedImage, setSelectedImage] = useState(0)
+
+  useEffect(() => {
+    trackViewItem({
+      item_id: numericId(product.id),
+      item_name: product.name,
+      item_category: product.category.name,
+      price: product.price,
+    })
+  }, [product.id, product.name, product.category.name, product.price])
 
   const handleAddToCart = () => {
     addItem({

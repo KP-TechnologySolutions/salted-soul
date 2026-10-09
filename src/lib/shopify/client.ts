@@ -96,3 +96,43 @@ export async function createCart(lines: ShopifyCartLineInput[]): Promise<Shopify
   }
   return cart
 }
+
+const SUBSCRIBE_MUTATION = /* GraphQL */ `
+  mutation Subscribe($input: CustomerCreateInput!) {
+    customerCreate(input: $input) {
+      customer { id }
+      customerUserErrors { code field message }
+    }
+  }
+`
+
+/**
+ * Add an email to the store's customer list as an email-marketing subscriber,
+ * so the owner can mail them from Shopify (Customers → Subscribed, or the
+ * Shopify Email app).
+ *
+ * The Storefront API only creates subscribers via customerCreate, which needs a
+ * password — we send a random one the person never sees (they can reset it if
+ * they ever want an account). An email that's already a customer comes back
+ * TAKEN, which we treat as "already on the list".
+ */
+export async function subscribeEmail(email: string): Promise<'subscribed' | 'already'> {
+  const bytes = new Uint8Array(24)
+  crypto.getRandomValues(bytes)
+  const password = Array.from(bytes, (b) => b.toString(16).padStart(2, '0')).join('')
+
+  const data = await shopifyFetch<{
+    customerCreate: {
+      customer: { id: string } | null
+      customerUserErrors: { code: string | null; field: string[] | null; message: string }[]
+    }
+  }>(SUBSCRIBE_MUTATION, { input: { email, password, acceptsMarketing: true } })
+
+  const errors = data.customerCreate.customerUserErrors ?? []
+  if (errors.some((e) => e.code === 'TAKEN' || e.code === 'CUSTOMER_DISABLED')) return 'already'
+  if (errors.length) {
+    const invalid = errors.find((e) => e.field?.includes('email'))
+    throw new Error(invalid ? 'Please enter a valid email address.' : errors[0].message)
+  }
+  return 'subscribed'
+}
