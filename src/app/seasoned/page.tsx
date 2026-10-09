@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { getAllPosts, formatDate } from '@/lib/posts'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/seasoned/' },
   title: 'Seasoned — Faith, the Coast & Conversations Worth Having',
   description:
     'Stories, devotions, and everyday encouragement from Salted Soul — faith-forward reflections on grace, the Lowcountry coast, and conversations worth having.',

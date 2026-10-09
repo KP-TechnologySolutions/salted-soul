@@ -4,6 +4,7 @@ import ShopifyPolicy from '@/components/content/ShopifyPolicy'
 import { shopifyPolicies } from '@/data/policies.generated'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/terms/' },
   title: 'Terms of Service',
   description: 'The terms that govern your use of Salted Soul and purchases from our store.',
 }

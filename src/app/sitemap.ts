@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getPostSlugs } from '@/lib/posts'
+import { products } from '@/data/products'
 
 // Required for `output: export` (static site).
 export const dynamic = 'force-static'
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/shop',
     '/shop/hats',
+    ...products.map((p) => `/shop/${p.category.slug}/${p.slug}`),
     '/shop/new-arrivals',
     '/shop/best-sellers',
     '/seasoned',
@@ -28,8 +30,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   return routes.map((path) => ({
-    url: `${BASE}${path}`,
-    lastModified: new Date('2026-06-17'),
+    // trailingSlash: true — list the final URLs, not ones that redirect.
+    url: `${BASE}${path}/`,
+    lastModified: new Date(),
     changeFrequency: path === '' ? 'weekly' : 'monthly',
     priority: path === '' ? 1 : 0.7,
   }))

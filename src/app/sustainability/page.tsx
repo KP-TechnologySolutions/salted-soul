@@ -3,6 +3,7 @@ import Reveal from '@/components/ui/Reveal'
 import MinistryImpact from '@/components/content/MinistryImpact'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/sustainability/' },
   title: 'Sustainability & Impact',
   description: 'How Salted Soul cares for people and creation, from materials and printing to our ministry give-back.',
 }

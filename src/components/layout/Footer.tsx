@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { footerNavigation, socialLinks } from '@/data/navigation'
+import EmailSignup from '@/components/sections/EmailSignup'
 
 const Footer: React.FC = () => {
   return (
@@ -37,6 +38,11 @@ const Footer: React.FC = () => {
                 3022 S Morgans Point Rd, #120<br />
                 Mt Pleasant, SC 29466
               </address>
+
+              {/* Email list */}
+              <div className="footer-signup">
+                <EmailSignup prompt="Get new drops in your inbox." placement="footer" />
+              </div>
 
               {/* Social Links */}
               <div className="flex space-x-4">

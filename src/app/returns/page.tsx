@@ -5,6 +5,7 @@ import ShopifyPolicy from '@/components/content/ShopifyPolicy'
 import { shopifyPolicies } from '@/data/policies.generated'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/returns/' },
   title: 'Returns & Refunds',
   description: 'Salted Soul return and refund policy — how to request a return and get refunded.',
 }

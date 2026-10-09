@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/story/' },
   title: 'Our Story | Salted Soul',
   description: 'How a few simple "nuggets" God placed on our hearts became Salted Soul — a coastal Christian apparel brand built by Mark & Carol to point people to the Gospel.',
 }

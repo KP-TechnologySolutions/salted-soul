@@ -49,9 +49,6 @@ export const metadata: Metadata = {
   },
   // Production domain — used to resolve og:image and canonical URLs.
   metadataBase: new URL('https://saltedsoulsc.com'),
-  alternates: {
-    canonical: '/',
-  },
   // Google Search Console verification (URL-prefix / HTML-tag method)
   verification: {
     google: 'Modl_RfMJsVHayI6qPeWY9WZZE4EqBZ_fyLTsxQSbDM',
@@ -161,12 +158,18 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-TF6EYQTH19"
           strategy="afterInteractive"
         />
-        <Script id="ga4-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
+        {/* Plain inline script (not next/script) so config is queued during
+            HTML parse, before hydration — otherwise events fired on first
+            render (view_item) land ahead of config and GA drops them. */}
+        <script
+          id="ga4-init"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-TF6EYQTH19');`}
-        </Script>
+gtag('config', 'G-TF6EYQTH19');`,
+          }}
+        />
       </body>
     </html>
   )

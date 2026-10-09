@@ -3,6 +3,7 @@ import ContactForm from '@/components/contact/ContactForm'
 import ContactInfo from '@/components/contact/ContactInfo'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/contact/' },
   title: 'Contact Us | Salted Soul',
   description: 'Get in touch with the Salted Soul team. We\'d love to hear from you and answer any questions about our Christian apparel.',
 }

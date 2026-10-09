@@ -4,6 +4,7 @@ import ShopifyPolicy from '@/components/content/ShopifyPolicy'
 import { shopifyPolicies } from '@/data/policies.generated'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/privacy/' },
   title: 'Privacy Policy',
   description: 'How Salted Soul collects, uses, and protects your information.',
 }

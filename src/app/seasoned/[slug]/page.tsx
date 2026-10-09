@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: post.title,
     description: post.excerpt,
     keywords: post.keywords,
+    alternates: { canonical: `/seasoned/${slug}/` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
