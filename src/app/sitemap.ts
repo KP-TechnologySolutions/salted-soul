@@ -13,8 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/shop',
     '/shop/hats',
     ...products.map((p) => `/shop/${p.category.slug}/${p.slug}`),
-    '/shop/new-arrivals',
-    '/shop/best-sellers',
     '/seasoned',
     ...getPostSlugs().map((slug) => `/seasoned/${slug}`),
     '/story',

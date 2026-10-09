@@ -46,4 +46,4 @@ But we've watched it start conversations. Someone notices the little cross in th
 
 That's why we named it Salted Soul. Not because it sounded coastal — though it does. Because we couldn't stop thinking about what it would look like if a bunch of ordinary people actually believed they were the salt of the earth, and started living like it.
 
-Grab a hat, get out of the shaker, and go be a little salty. [Here's the lineup.](/shop/hats)
+Grab a hat (the [Loden / Black trucker](/shop/hats/loden-black-with-black-logo/) is a good one to start with), get out of the shaker, and go be a little salty. [Here's the lineup.](/shop/hats)

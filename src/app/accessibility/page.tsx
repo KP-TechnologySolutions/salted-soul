@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Reveal from '@/components/ui/Reveal'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/accessibility/' },
+export const metadata: Metadata = pageMetadata({
+  path: '/accessibility/',
   title: 'Accessibility',
   description: 'Salted Soul’s commitment to an accessible, inclusive shopping experience for everyone.',
-}
+})
 
 const commitments = [
   'Semantic markup, descriptive alt text, and a clear heading structure.',

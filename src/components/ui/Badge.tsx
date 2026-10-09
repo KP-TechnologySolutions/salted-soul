@@ -13,8 +13,8 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-full'
     
     const variantClasses = {
-      new: 'bg-coral-500 text-white',
-      sale: 'bg-red-500 text-white',
+      new: 'bg-coral-700 text-white',
+      sale: 'bg-red-700 text-white',
       bestseller: 'bg-ocean-500 text-white',
       featured: 'bg-yellow-500 text-black',
       default: 'bg-gray-200 text-gray-800',

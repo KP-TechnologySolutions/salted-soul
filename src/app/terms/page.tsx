@@ -1,13 +1,14 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import LegalDoc, { LegalSection } from '@/components/content/LegalDoc'
 import ShopifyPolicy from '@/components/content/ShopifyPolicy'
 import { shopifyPolicies } from '@/data/policies.generated'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/terms/' },
+export const metadata: Metadata = pageMetadata({
+  path: '/terms/',
   title: 'Terms of Service',
   description: 'The terms that govern your use of Salted Soul and purchases from our store.',
-}
+})
 
 const sections: LegalSection[] = [
   {

@@ -10,8 +10,8 @@ interface ProductGridProps {
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
-  const [sortBy, setSortBy] = useState<'newest' | 'price-low' | 'price-high' | 'popular'>('newest')
-  const [filterBy, setFilterBy] = useState<'all' | 'new' | 'sale' | 'bestseller'>('all')
+  const [sortBy, setSortBy] = useState<'newest' | 'price-low' | 'price-high'>('newest')
+  const [filterBy, setFilterBy] = useState<'all' | 'sale'>('all')
   const [searchQuery, setSearchQuery] = useState('')
 
   // Filter and sort products
@@ -28,18 +28,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
     }
 
     // Apply category filter
-    switch (filterBy) {
-      case 'new':
-        filtered = filtered.filter(p => p.newArrival)
-        break
-      case 'sale':
-        filtered = filtered.filter(p => p.onSale)
-        break
-      case 'bestseller':
-        filtered = filtered.filter(p => p.bestseller)
-        break
-      // 'all' shows everything
-    }
+    if (filterBy === 'sale') filtered = filtered.filter(p => p.onSale)
 
     // Apply sorting
     switch (sortBy) {
@@ -48,16 +37,6 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
         break
       case 'price-high':
         filtered.sort((a, b) => b.price - a.price)
-        break
-      case 'popular':
-        // Sort by bestseller first, then featured, then by name
-        filtered.sort((a, b) => {
-          if (a.bestseller && !b.bestseller) return -1
-          if (!a.bestseller && b.bestseller) return 1
-          if (a.featured && !b.featured) return -1
-          if (!a.featured && b.featured) return 1
-          return a.name.localeCompare(b.name)
-        })
         break
       case 'newest':
       default:
@@ -76,7 +55,8 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
           <div className="relative">
             <input
               type="text"
-              placeholder="Search for Christian apparel..."
+              placeholder="Search hats..."
+              aria-label="Search products"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean-500 focus:border-ocean-500"
@@ -92,33 +72,35 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
           </div>
         </div>
 
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap gap-3">
-          {[
-            { key: 'all', label: 'All Products' },
-            { key: 'new', label: 'New Arrivals' },
-            { key: 'bestseller', label: 'Bestsellers' },
-          ].map(filter => (
-            <Button
-              key={filter.key}
-              variant={filterBy === filter.key ? 'primary' : 'ghost'}
-              onClick={() => setFilterBy(filter.key as any)}
-              className="whitespace-nowrap"
-            >
-              {filter.label}
-            </Button>
-          ))}
-        </div>
+        {/* Sale filter only when something is actually on sale (no sales data
+            exists for "bestseller"/"new" filters, so those were removed). */}
+        {products.some(p => p.onSale) && (
+          <div className="flex flex-wrap gap-3">
+            {[
+              { key: 'all', label: 'All Products' },
+              { key: 'sale', label: 'On Sale' },
+            ].map(filter => (
+              <Button
+                key={filter.key}
+                variant={filterBy === filter.key ? 'primary' : 'ghost'}
+                onClick={() => setFilterBy(filter.key as 'all' | 'sale')}
+                className="whitespace-nowrap"
+              >
+                {filter.label}
+              </Button>
+            ))}
+          </div>
+        )}
 
         {/* Sort Dropdown */}
         <div className="lg:w-48">
           <select
+            aria-label="Sort products"
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean-500 focus:border-ocean-500"
           >
             <option value="newest">Newest First</option>
-            <option value="popular">Most Popular</option>
             <option value="price-low">Price: Low to High</option>
             <option value="price-high">Price: High to Low</option>
           </select>

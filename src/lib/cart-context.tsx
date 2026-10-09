@@ -91,7 +91,9 @@ function calculateTotals(state: CartState): CartState {
   )
 
   const shipping = subtotal > 70 ? 0 : 5.95 // Free over $70; $5.95 flat per Shopify shipping policy
-  const tax = subtotal * 0.08 // 8% tax
+  // Tax is not estimated here: the real rate depends on the buyer's address and
+  // Shopify calculates it at checkout. The drawer says so instead of guessing.
+  const tax = 0
   const discount = state.discountAmount || 0
   const total = subtotal + shipping + tax - discount
 
@@ -127,6 +129,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const addItem = (item: CartItem) => {
     dispatch({ type: 'ADD_ITEM', payload: item })
+    // Open the drawer on every add so the buyer always sees the result,
+    // including on phones where the header cart icon may be out of view.
+    setIsOpen(true)
     trackAddToCart({
       item_id: numericId(item.productId),
       item_name: item.product.name,

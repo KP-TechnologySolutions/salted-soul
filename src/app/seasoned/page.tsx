@@ -1,15 +1,15 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllPosts, formatDate } from '@/lib/posts'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/seasoned/' },
+export const metadata: Metadata = pageMetadata({
+  path: '/seasoned/',
   title: 'Seasoned — Faith, the Coast & Conversations Worth Having',
-  description:
-    'Stories, devotions, and everyday encouragement from Salted Soul — faith-forward reflections on grace, the Lowcountry coast, and conversations worth having.',
+  description: 'Stories, devotions, and everyday encouragement from Salted Soul — faith-forward reflections on grace, the Lowcountry coast, and conversations worth having.',
   keywords: ['christian blog', 'faith devotionals', 'coastal christian', 'charleston christian', 'salted soul stories'],
-}
+})
 
 export default function SeasonedPage() {
   const posts = getAllPosts()

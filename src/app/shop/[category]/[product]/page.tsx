@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { products } from '@/data/products'
 import ProductDetail from '@/components/product/ProductDetail'
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import type { Product } from '@/types/product'
 
 interface ProductPageProps {
@@ -31,26 +32,20 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     ? `${product.name} Richardson 112 trucker hat from Salted Soul, Christian coastal apparel from Mt Pleasant, SC. Adjustable snapback, one size fits most. $${product.price}.`
     : product.shortDescription || product.description
 
-  return {
+  return pageMetadata({
+    path,
     title,
     description,
     keywords: product.tags,
-    alternates: { canonical: path },
-    openGraph: {
-      type: 'website',
-      url: path,
-      title: `${title} | Salted Soul`,
-      description,
-      images: [
-        {
-          url: product.images[0].url,
-          width: product.images[0].width,
-          height: product.images[0].height,
-          alt: product.images[0].altText,
-        },
-      ],
-    },
-  }
+    images: [
+      {
+        url: product.images[0].url,
+        width: product.images[0].width,
+        height: product.images[0].height,
+        alt: product.images[0].altText,
+      },
+    ],
+  })
 }
 
 export async function generateStaticParams() {

@@ -121,13 +121,12 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
         <div className="space-y-8">
           {/* Header */}
           <div>
-            {/* Badges */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {product.newArrival && <Badge variant="new">New Arrival</Badge>}
-              {product.bestseller && <Badge variant="bestseller">Bestseller</Badge>}
-              {product.onSale && <Badge variant="sale">Sale</Badge>}
-              {product.featured && <Badge variant="featured">Featured</Badge>}
-            </div>
+            {/* Badges: only real, data-backed ones (a Shopify compare-at price) */}
+            {product.onSale && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                <Badge variant="sale">Sale</Badge>
+              </div>
+            )}
 
             {/* Category */}
             <p className="text-ocean-600 font-medium mb-2">{product.category.name}</p>
@@ -194,7 +193,9 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
               <div className="flex items-center space-x-4">
                 <div className="flex items-center border border-gray-300 rounded-lg">
                   <button
+                    type="button"
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    aria-label="Decrease quantity"
                     className="p-3 hover:bg-gray-50 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -211,7 +212,9 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                     className="w-16 text-center border-0 focus:outline-none"
                   />
                   <button
+                    type="button"
                     onClick={() => setQuantity(Math.min(selectedVariant.inventory, quantity + 1))}
+                    aria-label="Increase quantity"
                     className="p-3 hover:bg-gray-50 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -225,7 +228,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="max-w-md">
               <Button
                 variant="primary"
                 size="large"
@@ -234,17 +237,6 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                 disabled={!selectedVariant.available || selectedVariant.inventory < quantity}
               >
                 Add to Cart - ${(selectedVariant.price * quantity).toFixed(2)}
-              </Button>
-              
-              <Button
-                variant="secondary"
-                size="large"
-                className="w-full"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-                Add to Wishlist
               </Button>
             </div>
           </div>

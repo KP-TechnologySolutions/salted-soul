@@ -1,12 +1,13 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/story/' },
-  title: 'Our Story | Salted Soul',
+export const metadata: Metadata = pageMetadata({
+  path: '/story/',
+  title: 'Our Story',
   description: 'How a few simple "nuggets" God placed on our hearts became Salted Soul — a coastal Christian apparel brand built by Mark & Carol to point people to the Gospel.',
-}
+})
 
 export default function StoryPage() {
   return (

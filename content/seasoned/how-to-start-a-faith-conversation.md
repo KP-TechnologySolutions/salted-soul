@@ -26,7 +26,7 @@ Preachy conversations begin with an answer. Great conversations begin with a que
 
 ## 2. Let your life ask the question first
 
-Some of the best faith conversations don't start with words at all. They start when someone notices something *different* about you — the way you handle stress, the way you treat a server, the small cross stitched on the hat you're wearing — and they ask about it. Your job isn't to force the door open. It's to live in a way that makes people want to knock.
+Some of the best faith conversations don't start with words at all. They start when someone notices something *different* about you — the way you handle stress, the way you treat a server, the small cross stitched on the [hat you're wearing](/shop/hats/heather-grey-light-grey-with-columbia-blue-logo/) — and they ask about it. Your job isn't to force the door open. It's to live in a way that makes people want to knock.
 
 That's actually why we make what we make. A design that sparks a "hey, what's that about?" is a conversation waiting to happen — no cold open required.
 

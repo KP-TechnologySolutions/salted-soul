@@ -40,4 +40,4 @@ The old bridge in the Old Village doesn't go anywhere anymore — it just stretc
 
 Here's the honest part: you don't need a scenic overlook to meet God. Some of the best quiet we've found was in a parked car in a grocery store lot, or on the back porch before the coffee kicked in. The Lowcountry just makes it easier to notice — the marsh, the tide, the enormous old trees — because it's all so plainly *made.*
 
-So find your version of these spots. Get still on purpose. And if you head out for a slow morning by the water, you know what to put on. [We made these for exactly that.](/shop/hats)
+So find your version of these spots. Get still on purpose. And if you head out for a slow morning by the water, you know what to put on. The [Columbia Blue / White trucker](/shop/hats/columbia-blue-hat/) looks right at home by the harbor. [We made these for exactly that.](/shop/hats)

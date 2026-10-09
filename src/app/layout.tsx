@@ -47,6 +47,10 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  icons: {
+    icon: [{ url: '/favicon.ico', sizes: '16x16 32x32 48x48' }],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
   // Production domain — used to resolve og:image and canonical URLs.
   metadataBase: new URL('https://saltedsoulsc.com'),
   // Google Search Console verification (URL-prefix / HTML-tag method)

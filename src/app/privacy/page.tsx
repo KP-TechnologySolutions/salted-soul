@@ -1,13 +1,14 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import LegalDoc, { LegalSection } from '@/components/content/LegalDoc'
 import ShopifyPolicy from '@/components/content/ShopifyPolicy'
 import { shopifyPolicies } from '@/data/policies.generated'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/privacy/' },
+export const metadata: Metadata = pageMetadata({
+  path: '/privacy/',
   title: 'Privacy Policy',
   description: 'How Salted Soul collects, uses, and protects your information.',
-}
+})
 
 const sections: LegalSection[] = [
   {

@@ -24,7 +24,7 @@ If you're shopping for the coastal Christian in your life, here's where we'd sta
 
 Every family has one. He returns the sweater, doesn't need another gadget, and somehow never has an answer when you ask what he wants for his birthday?
 
-Instead of trying to surprise him with something he'll never use, give him something he'll reach for every day. A quality well-made hat for early mornings on the water, weekends around town, or simply a drive to work. Something comfortable enough to become his favorite and meaningful enough to remind him of the faith that shapes his life.
+Instead of trying to surprise him with something he'll never use, give him something he'll reach for every day. A quality well-made hat for early mornings on the water, weekends around town, or simply a drive to work. Something comfortable enough to become his favorite and meaningful enough to remind him of the faith that shapes his life. Our [Khaki / Loden trucker hat](/shop/hats/khaki-loden-hat/) is an easy place to start.
 
 ## For the new grad heading somewhere new
 

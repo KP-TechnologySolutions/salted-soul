@@ -1,14 +1,15 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Reveal from '@/components/ui/Reveal'
 import ReturnFlow from '@/components/content/ReturnFlow'
 import ShopifyPolicy from '@/components/content/ShopifyPolicy'
 import { shopifyPolicies } from '@/data/policies.generated'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/returns/' },
+export const metadata: Metadata = pageMetadata({
+  path: '/returns/',
   title: 'Returns & Refunds',
   description: 'Salted Soul return and refund policy — how to request a return and get refunded.',
-}
+})
 
 export default function ReturnsPage() {
   const policy = shopifyPolicies.refundPolicy

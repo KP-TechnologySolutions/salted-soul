@@ -1,13 +1,14 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import ProductGrid from '@/components/product/ProductGrid'
 import { products } from '@/data/products'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/shop/' },
-  title: 'Shop Christian Apparel | Salted Soul',
-  description: 'Shop our complete collection of Christian apparel with coastal soul. T-shirts, hoodies, and accessories designed to share your faith with authentic style.',
-  keywords: ['christian apparel', 'faith clothing', 'christian t-shirts', 'coastal christian', 'ministry apparel'],
-}
+export const metadata: Metadata = pageMetadata({
+  path: '/shop/',
+  title: 'Shop Christian Hats',
+  description: 'Shop Salted Soul\'s Christian trucker hats. Richardson 112 snapbacks with a coastal, faith-first design from Mt Pleasant, SC.',
+  keywords: ['christian hats', 'christian trucker hats', 'faith hats', 'coastal christian', 'christian snapback'],
+})
 
 export default function ShopPage() {
   return (

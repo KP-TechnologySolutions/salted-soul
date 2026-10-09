@@ -152,7 +152,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Agency credit */}
-          <p className="mt-6 text-center text-xs text-gray-500">
+          <p className="mt-6 text-center text-xs text-gray-400">
             Website by{' '}
             <a
               href="https://www.kptechnologysolutions.com/"
