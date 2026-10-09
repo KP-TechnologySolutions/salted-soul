@@ -52,6 +52,8 @@ export const metadata: Metadata = {
   // Google Search Console verification (URL-prefix / HTML-tag method)
   verification: {
     google: 'Modl_RfMJsVHayI6qPeWY9WZZE4EqBZ_fyLTsxQSbDM',
+    // Bing Webmaster Tools (KP Google sign-in), added 2026-10-09
+    other: { 'msvalidate.01': '42F119B76D6C6E855C5E1880310A938C' },
   },
   openGraph: {
     type: 'website',
