@@ -36,6 +36,16 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
 
   // Same fix for the back/forward cache: when the page is restored from bfcache
   // (Back button from Shopify checkout), clear the stuck loading state.
+  // Escape closes the drawer.
+  useEffect(() => {
+    if (!isOpen) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [isOpen, onClose])
+
   useEffect(() => {
     const onPageShow = (e: PageTransitionEvent) => {
       if (e.persisted) setCheckingOut(false)
@@ -85,21 +95,30 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
 
   return createPortal(
     <>
-      {/* Backdrop */}
+      {/* Backdrop + drawer sit above the sticky site header (z-index 1000),
+          otherwise the header covers the drawer title and first item. */}
       <div
-        className="fixed inset-0 bg-black/50 z-50 transition-opacity"
+        className="fixed inset-0 bg-black/50 z-[1100] transition-opacity"
         onClick={onClose}
+        aria-hidden="true"
       />
       
       {/* Cart Drawer */}
-      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform transition-transform flex flex-col">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cart-drawer-title"
+        className="fixed right-0 top-0 h-full w-full max-w-md bg-white z-[1101] shadow-2xl transform transition-transform flex flex-col"
+      >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b">
-          <h2 className="text-xl font-bold text-charcoal-900">
+          <h2 id="cart-drawer-title" className="text-xl font-bold text-charcoal-900">
             Shopping Cart ({state.totalItems})
           </h2>
           <button
+            type="button"
             onClick={onClose}
+            aria-label="Close cart"
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,9 +175,12 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                         {item.product.name}
                       </Link>
                       
-                      <p className="text-sm text-gray-600 mt-1">
-                        {item.variant.options.map(opt => opt.value).join(' / ')}
-                      </p>
+                      {/* Hide Shopify's "Default Title" pseudo-option on single-variant products */}
+                      {item.variant.options.some(opt => opt.value !== 'Default Title') && (
+                        <p className="text-sm text-gray-600 mt-1">
+                          {item.variant.options.map(opt => opt.value).join(' / ')}
+                        </p>
+                      )}
 
                       <div className="flex items-center justify-between mt-3">
                         <PriceDisplay
@@ -171,7 +193,9 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                         <div className="flex items-center space-x-2">
                           <div className="flex items-center border border-gray-300 rounded">
                             <button
+                              type="button"
                               onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                              aria-label={`Decrease quantity of ${item.product.name}`}
                               className="p-1 hover:bg-gray-50 transition-colors"
                               disabled={item.quantity <= 1}
                             >
@@ -183,7 +207,9 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                               {item.quantity}
                             </span>
                             <button
+                              type="button"
                               onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                              aria-label={`Increase quantity of ${item.product.name}`}
                               className="p-1 hover:bg-gray-50 transition-colors"
                             >
                               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -193,7 +219,9 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                           </div>
 
                           <button
+                            type="button"
                             onClick={() => removeItem(item.id)}
+                            aria-label={`Remove ${item.product.name} from cart`}
                             className="p-1 text-red-500 hover:bg-red-50 rounded transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -232,12 +260,13 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                     Spend ${(70 - state.subtotal).toFixed(2)} more for free shipping
                   </p>
                 )}
+                {/* Real tax depends on the shipping address; Shopify works it out. */}
                 <div className="flex justify-between text-sm">
-                  <span>Tax</span>
-                  <span>${state.tax.toFixed(2)}</span>
+                  <span>Taxes</span>
+                  <span className="text-gray-600">Calculated at checkout</span>
                 </div>
                 <div className="flex justify-between text-lg font-bold border-t pt-2">
-                  <span>Total</span>
+                  <span>Estimated total</span>
                   <span>${state.total.toFixed(2)}</span>
                 </div>
               </div>

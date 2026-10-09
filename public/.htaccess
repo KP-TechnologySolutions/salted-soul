@@ -1,0 +1,23 @@
+# Salted Soul — Apache rules for the static export (owner's DreamHost).
+# Lives in public/ so every deploy ships it (the lftp mirror uses --delete,
+# so anything only on the server would be wiped).
+# HTTPS is forced in the DreamHost panel, not here.
+
+RewriteEngine On
+
+# www -> apex, one 301 hop
+RewriteCond %{HTTP_HOST} ^www\.saltedsoulsc\.com$ [NC]
+RewriteRule ^(.*)$ https://saltedsoulsc.com/$1 [R=301,L]
+
+# Retired pages (no sales data behind "best sellers" / "new arrivals")
+RewriteRule ^shop/(best-sellers|new-arrivals)/?$ /shop/hats/ [R=301,L]
+
+# Basic security headers. No Content-Security-Policy script rules on purpose:
+# GA4 and the Shopify Storefront API must keep working.
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Content-Security-Policy "frame-ancestors 'self'"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), usb=()"
+</IfModule>

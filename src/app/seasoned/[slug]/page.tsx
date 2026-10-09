@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
@@ -16,18 +17,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   if (!getPostSlugs().includes(slug)) return {}
   const post = getPostBySlug(slug)
-  return {
+  return pageMetadata({
+    path: `/seasoned/${slug}/`,
     title: post.title,
     description: post.excerpt,
     keywords: post.keywords,
-    alternates: { canonical: `/seasoned/${slug}/` },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      type: 'article',
-      images: [post.coverImage],
-    },
-  }
+    type: 'article',
+    images: post.coverImage ? [{ url: post.coverImage, alt: post.coverAlt }] : undefined,
+  })
 }
 
 export default async function PostPage({ params }: Params) {

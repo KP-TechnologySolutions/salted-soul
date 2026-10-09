@@ -71,7 +71,7 @@ const ContactInfo: React.FC = () => {
         </p>
         <Link
           href="mailto:mark@saltedsoulsc.com"
-          className="text-sand-800 hover:text-sand-900 font-medium"
+          className="text-sand-900 hover:text-charcoal-900 font-medium"
         >
           mark@saltedsoulsc.com
         </Link>

@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import SizeChart from '@/components/size/SizeChart'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/size-guide/' },
-  title: 'Size Guide | Salted Soul',
-  description: 'Find your perfect fit with our interactive size guide for Christian apparel. Detailed measurements for all our shirts and accessories.',
-}
+export const metadata: Metadata = pageMetadata({
+  path: '/size-guide/',
+  title: 'Size Guide',
+  description: 'Sizing for Salted Soul. Our Richardson 112 trucker hats are one size fits most, with an adjustable snapback.',
+})
 
 export default function SizeGuidePage() {
   return (

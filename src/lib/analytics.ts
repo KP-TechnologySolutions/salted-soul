@@ -49,9 +49,15 @@ export function trackAddToCart(item: GtagItem) {
 }
 
 /**
- * Fire begin_checkout, then run `next` once GA has the hit (or after a short
- * timeout) — the next step navigates away to Shopify, which would otherwise
- * drop the event.
+ * Fire begin_checkout, then run `next` (the redirect to Shopify checkout).
+ *
+ * gtag batches hits and sends them a few seconds later, but the redirect to
+ * Shopify happens within a second. What saves the event is gtag's flush on
+ * page unload, which uses a beacon/keepalive request that outlives the page.
+ * `transport_type: 'beacon'` asks for beacon delivery for this hit too, and
+ * `event_callback` lets us redirect as soon as gtag has handled it. The
+ * timeout is a safety net so a blocked or slow GA (ad blockers) never holds
+ * up checkout.
  */
 export function trackBeginCheckout(items: GtagItem[], value: number, next: () => void) {
   if (typeof window === 'undefined') return next()
@@ -61,8 +67,15 @@ export function trackBeginCheckout(items: GtagItem[], value: number, next: () =>
     done = true
     next()
   }
-  gtag('event', 'begin_checkout', { currency: 'USD', value, items, event_callback: go })
-  setTimeout(go, 800)
+  gtag('event', 'begin_checkout', {
+    currency: 'USD',
+    value,
+    items,
+    transport_type: 'beacon',
+    event_callback: go,
+    event_timeout: 1000,
+  })
+  setTimeout(go, 1200)
 }
 
 export function trackSignUp(method: string) {

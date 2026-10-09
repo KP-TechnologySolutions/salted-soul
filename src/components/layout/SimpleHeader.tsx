@@ -34,8 +34,9 @@ export default function SimpleHeader() {
               style={{ width: 'auto', height: '60px' }}
             />
           </div>
+          {/* Not an <h1>: each page has its own single H1. */}
           <div className="logo-text">
-            <h1>Salted Soul</h1>
+            <span className="logo-wordmark">Salted Soul</span>
           </div>
         </Link>
 

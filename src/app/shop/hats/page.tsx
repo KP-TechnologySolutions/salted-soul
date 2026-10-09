@@ -1,14 +1,15 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Image from 'next/image'
 import ProductGrid from '@/components/product/ProductGrid'
 import { products } from '@/data/products'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/shop/hats/' },
-  title: 'Christian Hats & Caps | Salted Soul',
-  description: 'Shop our collection of Christian hats and caps. Trucker hats, snapbacks, and baseball caps designed to share your faith with coastal style.',
+export const metadata: Metadata = pageMetadata({
+  path: '/shop/hats/',
+  title: 'Christian Trucker Hats',
+  description: 'Christian trucker hats from Salted Soul. Richardson 112 snapbacks, one size fits most, from Mt Pleasant, SC.',
   keywords: ['christian hats', 'faith caps', 'christian trucker hats', 'christian snapbacks', 'ministry hats'],
-}
+})
 
 export default function HatsPage() {
   // Filter products to only show hats

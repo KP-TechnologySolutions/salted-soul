@@ -135,10 +135,11 @@ function mapProduct(node) {
     collections: [],
     tags: node.tags ?? [],
     status: 'active',
-    // Surface every live product on the homepage/sections while the catalog is small.
-    featured: true,
-    bestseller: true,
-    newArrival: true,
+    // No merchandising badges: there is no sales/date data behind them, so
+    // "Bestseller" / "New Arrival" / "Featured" would be invented claims.
+    featured: false,
+    bestseller: false,
+    newArrival: false,
     onSale: Boolean(compareAt && compareAt > price),
     inventory: { quantity: variants.some((v) => v.available) ? 99 : 0, trackQuantity: false, allowBackorder: false, policy: 'continue' },
     seo: { title: node.title, description: node.description || node.title, keywords: node.tags ?? [] },

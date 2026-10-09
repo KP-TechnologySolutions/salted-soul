@@ -14,14 +14,12 @@ export interface ProductCardProps {
   product: Product
   className?: string
   showQuickAdd?: boolean
-  showWishlist?: boolean
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
   product,
   className,
   showQuickAdd = true,
-  showWishlist = true
 }) => {
   const primaryImage = product.images[0]
   const secondaryImage = product.images[1] // For hover effect
@@ -82,27 +80,11 @@ const ProductCard: React.FC<ProductCardProps> = ({
             />
           )}
 
-          {/* Badges */}
-          <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
-            {product.newArrival && <Badge variant="new" size="small">New</Badge>}
-            {product.onSale && <Badge variant="sale" size="small">Sale</Badge>}
-            {product.bestseller && <Badge variant="bestseller" size="small">Bestseller</Badge>}
-            {product.featured && <Badge variant="featured" size="small">Featured</Badge>}
-          </div>
-
-          {/* Wishlist Button */}
-          {showWishlist && (
-            <button
-              className="absolute top-3 right-3 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white hover:scale-110"
-              onClick={(e) => {
-                e.preventDefault()
-                // Add to wishlist logic here
-              }}
-            >
-              <svg className="w-5 h-5 text-charcoal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
-            </button>
+          {/* Badges: only real, data-backed ones (a Shopify compare-at price) */}
+          {product.onSale && (
+            <div className="absolute top-3 left-3 z-10 flex flex-col gap-2">
+              <Badge variant="sale" size="small">Sale</Badge>
+            </div>
           )}
 
           {/* Quick Add Button - Shows on Hover */}

@@ -1,12 +1,13 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import FaqList from '@/components/content/FaqList'
 import { FAQS } from '@/data/faqs'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/faq/' },
+export const metadata: Metadata = pageMetadata({
+  path: '/faq/',
   title: 'FAQ',
   description: 'Answers to common questions about Salted Soul apparel, shipping, returns, sizing, and our ministry give-back.',
-}
+})
 
 export default function FaqPage() {
   const faqJsonLd = {

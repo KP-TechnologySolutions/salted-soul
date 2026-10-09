@@ -1,14 +1,15 @@
 import { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Reveal from '@/components/ui/Reveal'
 import ShippingCalc from '@/components/content/ShippingCalc'
 import ShopifyPolicy from '@/components/content/ShopifyPolicy'
 import { shopifyPolicies } from '@/data/policies.generated'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/shipping/' },
+export const metadata: Metadata = pageMetadata({
+  path: '/shipping/',
   title: 'Shipping Information',
   description: 'Shipping rates, processing times, and delivery details for Salted Soul orders.',
-}
+})
 
 export default function ShippingPage() {
   const policy = shopifyPolicies.shippingPolicy
