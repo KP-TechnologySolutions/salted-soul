@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import FaqList from '@/components/content/FaqList'
+import { FAQS } from '@/data/faqs'
 
 export const metadata: Metadata = {
   alternates: { canonical: '/faq/' },
@@ -8,8 +9,22 @@ export const metadata: Metadata = {
 }
 
 export default function FaqPage() {
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.filter((f) => f.schema).map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <section className="bg-gradient-sand py-16">
         <div className="container-narrow text-center">
           <h1 className="heading-primary mb-4">Frequently asked questions</h1>
