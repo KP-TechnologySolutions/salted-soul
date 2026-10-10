@@ -1,7 +1,6 @@
 'use client'
 
-import React from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import React, { useEffect, useRef, useState } from 'react'
 
 interface RevealProps {
   children: React.ReactNode
@@ -12,39 +11,62 @@ interface RevealProps {
   as?: 'div' | 'section' | 'li'
 }
 
+type Phase = 'static' | 'pending' | 'in'
+
 /**
- * Scroll-triggered entrance: a soft fade + upward translate, GPU-friendly
- * (transform/opacity only). Honors prefers-reduced-motion by rendering static.
+ * Scroll-triggered entrance: a soft fade + upward translate (transform/opacity
+ * only, CSS in globals.css under .reveal).
+ *
+ * Content renders VISIBLE in the static HTML. Only elements that are below the
+ * fold once the page mounts get hidden and then animated in on scroll. The old
+ * version server-rendered everything at opacity 0, so above-the-fold content
+ * (the homepage hero) stayed invisible until hydration plus the animation,
+ * which held back Largest Contentful Paint.
  */
 const Reveal: React.FC<RevealProps> = ({ children, index = 0, className, as = 'div' }) => {
-  const reduce = useReducedMotion()
-  const MotionTag = motion[as]
+  const ref = useRef<HTMLElement | null>(null)
+  const [phase, setPhase] = useState<Phase>('static')
 
-  // Render static when the user prefers reduced motion, or for QA/snapshot
-  // captures via ?nomotion (avoids content staying hidden in non-scrolling renders).
-  const noMotion =
-    reduce ||
-    (typeof window !== 'undefined' && window.location.search.includes('nomotion'))
+  useEffect(() => {
+    const el = ref.current
+    if (!el || typeof IntersectionObserver === 'undefined') return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    // QA/snapshot captures via ?nomotion render everything static.
+    if (window.location.search.includes('nomotion')) return
 
-  if (noMotion) {
-    const Tag = as
-    return <Tag className={className}>{children}</Tag>
-  }
+    let reveal: IntersectionObserver | null = null
+    const first = new IntersectionObserver(([entry]) => {
+      first.disconnect()
+      if (entry.isIntersecting) return // already on screen: leave it alone
+      setPhase('pending')
+      reveal = new IntersectionObserver(
+        ([e]) => {
+          if (!e.isIntersecting) return
+          setPhase('in')
+          reveal?.disconnect()
+        },
+        { rootMargin: '0px 0px -10% 0px' },
+      )
+      reveal.observe(el)
+    })
+    first.observe(el)
+    return () => {
+      first.disconnect()
+      reveal?.disconnect()
+    }
+  }, [])
+
+  const Tag = as as React.ElementType
+  const cls = [className, phase === 'pending' && 'reveal-pending', phase === 'in' && 'reveal-in']
+    .filter(Boolean)
+    .join(' ')
+  const style =
+    phase === 'in' ? ({ '--reveal-delay': `${Math.min(index * 0.08, 0.4)}s` } as React.CSSProperties) : undefined
 
   return (
-    <MotionTag
-      className={className}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '0px 0px -10% 0px' }}
-      transition={{
-        duration: 0.6,
-        delay: Math.min(index * 0.08, 0.4),
-        ease: [0.22, 1, 0.36, 1], // gentle ease-out, spring-like settle
-      }}
-    >
+    <Tag ref={ref} className={cls || undefined} style={style}>
       {children}
-    </MotionTag>
+    </Tag>
   )
 }
 

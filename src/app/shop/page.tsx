@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
 import ProductGrid from '@/components/product/ProductGrid'
 import { products } from '@/data/products'
+import { JsonLd, breadcrumbJsonLd } from '@/lib/jsonld'
 
 export const metadata: Metadata = pageMetadata({
   path: '/shop/',
@@ -13,6 +14,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ShopPage() {
   return (
     <div className="min-h-screen bg-white">
+      <JsonLd data={breadcrumbJsonLd([['Shop', '/shop/']])} />
       {/* Hero Section */}
       <section className="bg-gradient-sand py-16">
         <div className="container-wide text-center">
@@ -27,7 +29,9 @@ export default function ShopPage() {
       </section>
 
       {/* Products */}
-      <section className="section-padding">
+      <section className="section-padding" aria-labelledby="shop-products-heading">
+        {/* Keeps the outline h1 > h2 > h3 (product names) without changing the design. */}
+        <h2 id="shop-products-heading" className="sr-only">All hats</h2>
         <ProductGrid products={products} />
       </section>
 

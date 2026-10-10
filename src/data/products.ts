@@ -460,7 +460,7 @@ const mockProducts: Product[] = [
     images: [
       {
         id: 'charleston-snap-1',
-        url: '/CharlestonSnapback.png',
+        url: '/img/charleston-snapback-06a94eae-1024.jpg',
         altText: 'Charleston Snapback - Holy City Design',
         width: 800,
         height: 800,

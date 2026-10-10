@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
-import Image from 'next/image'
+import Picture from '@/components/ui/Picture'
 import ProductGrid from '@/components/product/ProductGrid'
 import { products } from '@/data/products'
+import { JsonLd, breadcrumbJsonLd } from '@/lib/jsonld'
 
 export const metadata: Metadata = pageMetadata({
   path: '/shop/hats/',
@@ -17,6 +18,7 @@ export default function HatsPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <JsonLd data={breadcrumbJsonLd([['Shop', '/shop/'], ['Hats', '/shop/hats/']])} />
       {/* Hero Section */}
       <section className="bg-gradient-sand py-16">
         <div className="container-wide text-center">
@@ -34,13 +36,11 @@ export default function HatsPage() {
       <section className="section-padding-sm">
         <div className="container-wide">
           <div className="rounded-2xl overflow-hidden shadow-[var(--shadow-lg)]">
-            <Image
-              src="/salted-soul-hats-charleston.webp"
+            <Picture
+              name="hats-lineup"
               alt="The five Salted Soul trucker hats lined up on a weathered dock table with the Ravenel Bridge and Charleston harbor at sunset behind them"
-              width={1600}
-              height={893}
               className="w-full h-auto"
-              sizes="(max-width: 1280px) 100vw, 1200px"
+              sizes="(max-width: 1200px) calc(100vw - 30px), 1160px"
               priority
             />
           </div>

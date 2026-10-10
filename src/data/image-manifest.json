@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "width": 1536,
+    "height": 1024,
+    "fallbackType": "jpg",
+    "fallback": "/img/hero-4bb1bf1c-1536.jpg",
+    "srcset": {
+      "avif": "/img/hero-4bb1bf1c-960.avif 960w, /img/hero-4bb1bf1c-1280.avif 1280w, /img/hero-4bb1bf1c-1536.avif 1536w",
+      "webp": "/img/hero-4bb1bf1c-960.webp 960w, /img/hero-4bb1bf1c-1280.webp 1280w, /img/hero-4bb1bf1c-1536.webp 1536w",
+      "jpg": "/img/hero-4bb1bf1c-960.jpg 960w, /img/hero-4bb1bf1c-1280.jpg 1280w, /img/hero-4bb1bf1c-1536.jpg 1536w"
+    }
+  },
+  "hero-mobile": {
+    "width": 768,
+    "height": 1024,
+    "fallbackType": "jpg",
+    "fallback": "/img/hero-mobile-c6cb3597-768.jpg",
+    "srcset": {
+      "avif": "/img/hero-mobile-c6cb3597-512.avif 512w, /img/hero-mobile-c6cb3597-768.avif 768w",
+      "webp": "/img/hero-mobile-c6cb3597-512.webp 512w, /img/hero-mobile-c6cb3597-768.webp 768w",
+      "jpg": "/img/hero-mobile-c6cb3597-512.jpg 512w, /img/hero-mobile-c6cb3597-768.jpg 768w"
+    }
+  },
+  "logo": {
+    "width": 2048,
+    "height": 2048,
+    "fallbackType": "png",
+    "fallback": "/img/logo-5055976a-600.png",
+    "srcset": {
+      "avif": "/img/logo-5055976a-120.avif 120w, /img/logo-5055976a-180.avif 180w, /img/logo-5055976a-260.avif 260w, /img/logo-5055976a-400.avif 400w, /img/logo-5055976a-600.avif 600w",
+      "webp": "/img/logo-5055976a-120.webp 120w, /img/logo-5055976a-180.webp 180w, /img/logo-5055976a-260.webp 260w, /img/logo-5055976a-400.webp 400w, /img/logo-5055976a-600.webp 600w",
+      "png": "/img/logo-5055976a-120.png 120w, /img/logo-5055976a-180.png 180w, /img/logo-5055976a-260.png 260w, /img/logo-5055976a-400.png 400w, /img/logo-5055976a-600.png 600w"
+    }
+  },
+  "logo-footer": {
+    "width": 1536,
+    "height": 1024,
+    "fallbackType": "png",
+    "fallback": "/img/logo-footer-4a689702-240.png",
+    "srcset": {
+      "avif": "/img/logo-footer-4a689702-160.avif 160w, /img/logo-footer-4a689702-240.avif 240w",
+      "webp": "/img/logo-footer-4a689702-160.webp 160w, /img/logo-footer-4a689702-240.webp 240w",
+      "png": "/img/logo-footer-4a689702-160.png 160w, /img/logo-footer-4a689702-240.png 240w"
+    }
+  },
+  "charleston-snapback": {
+    "width": 1024,
+    "height": 1024,
+    "fallbackType": "jpg",
+    "fallback": "/img/charleston-snapback-06a94eae-1024.jpg",
+    "srcset": {
+      "avif": "/img/charleston-snapback-06a94eae-400.avif 400w, /img/charleston-snapback-06a94eae-600.avif 600w, /img/charleston-snapback-06a94eae-800.avif 800w, /img/charleston-snapback-06a94eae-1024.avif 1024w",
+      "webp": "/img/charleston-snapback-06a94eae-400.webp 400w, /img/charleston-snapback-06a94eae-600.webp 600w, /img/charleston-snapback-06a94eae-800.webp 800w, /img/charleston-snapback-06a94eae-1024.webp 1024w",
+      "jpg": "/img/charleston-snapback-06a94eae-400.jpg 400w, /img/charleston-snapback-06a94eae-600.jpg 600w, /img/charleston-snapback-06a94eae-800.jpg 800w, /img/charleston-snapback-06a94eae-1024.jpg 1024w"
+    }
+  },
+  "hats-lineup": {
+    "width": 1600,
+    "height": 893,
+    "fallbackType": "jpg",
+    "fallback": "/img/hats-lineup-b02bce8b-1600.jpg",
+    "srcset": {
+      "avif": "/img/hats-lineup-b02bce8b-600.avif 600w, /img/hats-lineup-b02bce8b-900.avif 900w, /img/hats-lineup-b02bce8b-1200.avif 1200w, /img/hats-lineup-b02bce8b-1600.avif 1600w",
+      "webp": "/img/hats-lineup-b02bce8b-600.webp 600w, /img/hats-lineup-b02bce8b-900.webp 900w, /img/hats-lineup-b02bce8b-1200.webp 1200w, /img/hats-lineup-b02bce8b-1600.webp 1600w",
+      "jpg": "/img/hats-lineup-b02bce8b-600.jpg 600w, /img/hats-lineup-b02bce8b-900.jpg 900w, /img/hats-lineup-b02bce8b-1200.jpg 1200w, /img/hats-lineup-b02bce8b-1600.jpg 1600w"
+    }
+  },
+  "rainbow-row": {
+    "width": 1200,
+    "height": 900,
+    "fallbackType": "jpg",
+    "fallback": "/img/rainbow-row-b91e5169-1200.jpg",
+    "srcset": {
+      "avif": "/img/rainbow-row-b91e5169-400.avif 400w, /img/rainbow-row-b91e5169-600.avif 600w, /img/rainbow-row-b91e5169-800.avif 800w, /img/rainbow-row-b91e5169-1200.avif 1200w",
+      "webp": "/img/rainbow-row-b91e5169-400.webp 400w, /img/rainbow-row-b91e5169-600.webp 600w, /img/rainbow-row-b91e5169-800.webp 800w, /img/rainbow-row-b91e5169-1200.webp 1200w",
+      "jpg": "/img/rainbow-row-b91e5169-400.jpg 400w, /img/rainbow-row-b91e5169-600.jpg 600w, /img/rainbow-row-b91e5169-800.jpg 800w, /img/rainbow-row-b91e5169-1200.jpg 1200w"
+    }
+  },
+  "harbor": {
+    "width": 736,
+    "height": 548,
+    "fallbackType": "jpg",
+    "fallback": "/img/harbor-dade597d-736.jpg",
+    "srcset": {
+      "avif": "/img/harbor-dade597d-400.avif 400w, /img/harbor-dade597d-600.avif 600w, /img/harbor-dade597d-736.avif 736w",
+      "webp": "/img/harbor-dade597d-400.webp 400w, /img/harbor-dade597d-600.webp 600w, /img/harbor-dade597d-736.webp 736w",
+      "jpg": "/img/harbor-dade597d-400.jpg 400w, /img/harbor-dade597d-600.jpg 600w, /img/harbor-dade597d-736.jpg 736w"
+    }
+  },
+  "southern-faith": {
+    "width": 1024,
+    "height": 1536,
+    "fallbackType": "jpg",
+    "fallback": "/img/southern-faith-f3fab3b9-800.jpg",
+    "srcset": {
+      "avif": "/img/southern-faith-f3fab3b9-400.avif 400w, /img/southern-faith-f3fab3b9-600.avif 600w, /img/southern-faith-f3fab3b9-800.avif 800w",
+      "webp": "/img/southern-faith-f3fab3b9-400.webp 400w, /img/southern-faith-f3fab3b9-600.webp 600w, /img/southern-faith-f3fab3b9-800.webp 800w",
+      "jpg": "/img/southern-faith-f3fab3b9-400.jpg 400w, /img/southern-faith-f3fab3b9-600.jpg 600w, /img/southern-faith-f3fab3b9-800.jpg 800w"
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Picture from '@/components/ui/Picture'
 import { footerNavigation, socialLinks } from '@/data/navigation'
 import EmailSignup from '@/components/sections/EmailSignup'
 
@@ -17,13 +17,7 @@ const Footer: React.FC = () => {
             <div className="lg:col-span-2">
               {/* Logo */}
               <Link href="/" className="flex items-center space-x-3 mb-6">
-                <Image
-                  src="/logo-original.webp"
-                  alt="Salted Soul"
-                  width={96}
-                  height={96}
-                  className="h-20 w-20 object-contain"
-                />
+                <Picture name="logo-footer" alt="" sizes="80px" className="h-20 w-20 object-contain" />
                 <span className="text-2xl font-bold">Salted Soul</span>
               </Link>
 
@@ -80,7 +74,7 @@ const Footer: React.FC = () => {
 
             {/* Navigation Links */}
             <div>
-              <h3 className="font-semibold text-lg mb-4">Shop</h3>
+              <h2 className="font-semibold text-lg mb-4">Shop</h2>
               <ul className="space-y-3">
                 {footerNavigation.shop.map((item) => (
                   <li key={item.name}>
@@ -96,7 +90,7 @@ const Footer: React.FC = () => {
             </div>
 
             <div>
-              <h3 className="font-semibold text-lg mb-4">Support</h3>
+              <h2 className="font-semibold text-lg mb-4">Support</h2>
               <ul className="space-y-3">
                 {footerNavigation.support.map((item) => (
                   <li key={item.name}>

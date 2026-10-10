@@ -4,6 +4,7 @@ import ProductDetail from '@/components/product/ProductDetail'
 import { Metadata } from 'next'
 import { pageMetadata } from '@/lib/seo'
 import type { Product } from '@/types/product'
+import { JsonLd, breadcrumbJsonLd } from '@/lib/jsonld'
 
 interface ProductPageProps {
   params: Promise<{
@@ -68,6 +69,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd(product)) }}
+      />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          ['Shop', '/shop/'],
+          [product.category.name, `/shop/${product.category.slug}/`],
+          [product.name, `/shop/${product.category.slug}/${product.slug}/`],
+        ])}
       />
       <ProductDetail product={product} />
     </>
