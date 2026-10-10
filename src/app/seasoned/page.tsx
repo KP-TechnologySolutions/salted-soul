@@ -3,6 +3,7 @@ import { pageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getAllPosts, formatDate } from '@/lib/posts'
+import { JsonLd, breadcrumbJsonLd } from '@/lib/jsonld'
 
 export const metadata: Metadata = pageMetadata({
   path: '/seasoned/',
@@ -16,6 +17,7 @@ export default function SeasonedPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <JsonLd data={breadcrumbJsonLd([['Seasoned', '/seasoned/']])} />
       {/* Hero */}
       <section className="bg-gradient-sand py-16">
         <div className="container-wide text-center">
@@ -44,7 +46,7 @@ export default function SeasonedPage() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
-                  <div className="text-sm text-charcoal-400 mb-2">
+                  <div className="text-sm text-charcoal-500 mb-2">
                     {formatDate(post.date)} &middot; {post.readingTime}
                   </div>
                   <h2 className="font-display text-2xl font-semibold text-charcoal-900 mb-2 leading-snug group-hover:text-ocean-600 transition-colors">

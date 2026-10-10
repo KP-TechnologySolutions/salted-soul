@@ -1,0 +1,264 @@
+'use client'
+
+import React from 'react'
+import ShopifyImage from '@/components/ui/ShopifyImage'
+import Picture from '@/components/ui/Picture'
+import CraftVideo from '@/components/sections/CraftVideo'
+import Link from 'next/link'
+import Reveal from '@/components/ui/Reveal'
+import EmailSignup from '@/components/sections/EmailSignup'
+import { products } from '@/data/products'
+import {
+  Wave,
+  Cross,
+  HandHeart,
+  Tee,
+  Truck,
+} from '@/components/ui/icons'
+
+export default function HomePage() {
+  // Pull real products from the live catalog (hats today) rather than hardcoded
+  // placeholders, so the homepage only ever shows items customers can actually buy.
+  const bestSellers = products.slice(0, 5).map((p) => ({
+    name: p.name,
+    price: p.price,
+    image: p.images?.[0]?.url ?? '/salted_soul_logo.webp',
+    imageWidth: p.images?.[0]?.width,
+    imageHeight: p.images?.[0]?.height,
+    category: p.category.name,
+    href: `/shop/${p.category.slug}/${p.slug}`,
+    ministry: Math.round(p.price * 0.1 * 100) / 100,
+  }))
+
+  return (
+    // Not <main>: the layout already wraps every page in <main id="main-content">.
+    <div>
+      {/* Hero Section */}
+      {/* LCP: the background photo is a real <img> with fetchpriority=high so
+          the browser finds it in the HTML instead of after CSS. The hero
+          content is not wrapped in <Reveal>, so nothing hides it on load. */}
+      <section className="hero-section">
+        <div className="hero-bg" aria-hidden="true">
+          <Picture
+            name="hero"
+            alt=""
+            sizes="max(100vw, 150vh)"
+            priority
+            mobile={{ name: 'hero-mobile', media: '(max-width: 768px)', sizes: '100vw' }}
+          />
+        </div>
+        <div className="hero-bg-overlay" aria-hidden="true" />
+        <div className="container-wide">
+          <div className="hero-content">
+            <div className="hero-logo-main">
+              <Picture
+                name="logo"
+                alt="Salted Soul"
+                sizes="(max-width: 768px) 130px, 300px"
+                eager
+                style={{ width: 'auto', height: '300px', marginBottom: '2rem' }}
+              />
+            </div>
+            <h1>
+              Premium coastal hats with
+              <span className="highlight">authentic faith</span>
+            </h1>
+            <p>
+              Faith-inspired designs that spark real conversations.
+            </p>
+
+            <div className="hero-buttons">
+              <Link href="/shop/hats" className="btn btn-primary">
+                Shop the Hats →
+              </Link>
+              <Link href="/story" className="btn btn-outline">
+                Our Story
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Badges */}
+      <section className="trust-badges">
+        <div className="container-wide">
+          <div className="badges-container">
+            <div className="badge"><Truck width={18} height={18} /><span>Free shipping over $70</span></div>
+            <div className="badge"><HandHeart width={18} height={18} /><span>10% supports local ministries</span></div>
+            <div className="badge"><Wave width={16} height={16} /><span>Inspired &amp; Designed in Charleston, SC</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Best Sellers */}
+      <section className="section" style={{ backgroundColor: 'var(--surface)' }}>
+        <div className="container-wide">
+          <Reveal className="section-header">
+            <h2 className="section-title">Our handcrafted hats</h2>
+          </Reveal>
+
+          <div className="products-grid">
+            {bestSellers.map((product, index) => (
+              <Reveal key={product.name} index={index} className="product-card">
+                <Link href={product.href} className="product-card-image" aria-label={product.name}>
+                  <ShopifyImage
+                    src={product.image}
+                    alt={product.name}
+                    width={product.imageWidth}
+                    height={product.imageHeight}
+                    widths={[200, 300, 400, 600]}
+                    sizes="(max-width: 1024px) 50vw, 230px"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div className="product-card-overlay">
+                    <span className="btn btn-primary btn-sm">Quick Shop</span>
+                  </div>
+                </Link>
+                <div className="product-card-content">
+                  <div className="product-category">{product.category}</div>
+                  <h3 className="product-name">{product.name}</h3>
+                  <div className="product-pricing">
+                    <div className="product-price">${product.price.toFixed(2)}</div>
+                  </div>
+                  <Link href={product.href} className="btn btn-primary" style={{ width: '100%' }}>
+                    View
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tees coming soon (owner announcement, 2026-08-20) */}
+      <section className="tees-soon">
+        <div className="container-wide">
+          <Reveal>
+            <div className="tees-soon-icon">
+              <Tee width={26} height={26} />
+            </div>
+            <span className="tees-soon-overline">Next from Salted Soul</span>
+            <h2>
+              Tees coming soon <span aria-hidden="true">🤍</span>
+            </h2>
+            <p className="tees-soon-tag">Stay salty.</p>
+            <EmailSignup prompt="Be the first to know when tees drop." placement="homepage_tees" />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Featured Product */}
+      <section className="section">
+        <div className="container-wide">
+          <Reveal className="product-showcase">
+            <div className="product-image">
+              <Picture
+                name="charleston-snapback"
+                alt="Charleston Snapback — Holy City design"
+                sizes="(max-width: 768px) calc(100vw - 30px), 560px"
+                style={{ width: '100%', height: 'auto' }}
+              />
+            </div>
+            <div className="product-info">
+              <h2>Charleston Snapback</h2>
+              <p>
+                Where Charleston charm meets Kingdom calling. This isn&apos;t just a hat — it&apos;s a conversation
+                starter about the God who makes all things beautiful.
+              </p>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                <Link href="/shop/hats" className="btn btn-primary">Shop the Hats</Link>
+                <Link href="/story" className="btn btn-outline" style={{ color: 'var(--ocean)', borderColor: 'var(--ocean)' }}>Our Story</Link>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Handcrafted — behind the scenes */}
+      <section className="section" style={{ backgroundColor: 'var(--surface)' }}>
+        <div className="container-wide">
+          <Reveal className="product-showcase">
+            <div className="craft-video">
+              <CraftVideo />
+              <span className="craft-badge">Behind the scenes</span>
+            </div>
+            <div className="product-info">
+              <h2>Designed and Embroidered in Charleston, SC</h2>
+              <p>
+                Every hat is made by hand, one at a time — no mass production, no shortcuts.
+                What you wear started on a workbench in the Lowcountry, shaped with the same
+                care and intention we put into every design.
+              </p>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem', flexWrap: 'wrap' }}>
+                <Link href="/shop/hats" className="btn btn-primary">Shop the Hats</Link>
+                <Link href="/story" className="btn btn-outline" style={{ color: 'var(--ocean)', borderColor: 'var(--ocean)' }}>Our Story</Link>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Lifestyle Gallery */}
+      <section className="section mission-section">
+        <div className="container-wide">
+          <Reveal className="section-header">
+            <h2 className="section-title" style={{ color: 'white' }}>Live your faith in style</h2>
+            <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.82)' }}>
+              Salted Soul hats, made for Charleston, SC life — designed to spark meaningful
+              conversations and represent your faith with authentic coastal style.
+            </p>
+          </Reveal>
+
+          <div className="lifestyle-gallery">
+            {[
+              // sizes: cards are ~370x400 (desktop) / full-width x 400 (phone) with
+              // object-fit: cover, so landscape photos need ~540 CSS px of width.
+              { name: 'rainbow-row', sizes: '540px', alt: 'A woman in a Salted Soul hat smiling on Charleston, SC Rainbow Row at golden hour', title: 'Rainbow Row Faith', subtitle: 'Historic Charleston, SC meets modern ministry' },
+              { name: 'harbor', sizes: '540px', alt: 'Charleston, SC harbor sunset ministry', title: 'Harbor Reflections', subtitle: 'Peaceful moments with purposeful faith' },
+              { name: 'southern-faith', sizes: '(max-width: 768px) calc(100vw - 30px), 380px', alt: 'Charleston, SC Christian lifestyle', title: 'Southern Faith', subtitle: 'Authentic Charleston, SC Christian culture' },
+            ].map((item, index) => (
+              <Reveal key={item.title} index={index} className="lifestyle-image">
+                <Picture name={item.name as 'rainbow-row'} alt={item.alt} sizes={item.sizes} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div className="lifestyle-overlay">
+                  <h3 className="lifestyle-title">{item.title}</h3>
+                  <p className="lifestyle-subtitle">{item.subtitle}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission Statement */}
+      <section className="section mission-section">
+        <div className="container-wide">
+          <Reveal className="section-header">
+            <h2 className="section-title" style={{ color: 'white' }}>Where faith meets the coast</h2>
+            <p className="section-subtitle" style={{ color: 'rgba(255,255,255,0.82)' }}>
+              Founded by Mark and Carol in Charleston, South Carolina, Salted Soul began with a simple belief:
+              that our faith should be as natural and flowing as the ocean tides.
+            </p>
+          </Reveal>
+
+          <div className="mission-grid">
+            {[
+              { icon: <Cross width={26} height={26} />, title: 'Faith-First', description: 'Every design starts with prayer and biblical truth.' },
+              { icon: <Tee width={26} height={26} />, title: 'Premium Quality', description: 'Only the finest materials, made for lasting comfort.' },
+              { icon: <HandHeart width={26} height={26} />, title: 'Kingdom Impact', description: '10% of profits support local ministries.' },
+            ].map((card, index) => (
+              <Reveal key={card.title} index={index} className="mission-card">
+                <div className="mission-icon">{card.icon}</div>
+                <h3 className="mission-title">{card.title}</h3>
+                <p className="mission-description">{card.description}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+            <Link href="/story" className="btn btn-outline">Read Our Full Story</Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

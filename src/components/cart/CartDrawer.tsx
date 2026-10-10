@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import Image from 'next/image'
+import ShopifyImage from '@/components/ui/ShopifyImage'
 import Link from 'next/link'
 import { useCart } from '@/lib/cart-context'
 import { createCart, isShopifyConfigured } from '@/lib/shopify/client'
@@ -156,11 +156,12 @@ const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen, onClose }) => {
                   <div key={item.id} className="flex gap-4">
                     {/* Product Image */}
                     <div className="w-20 h-20 bg-gray-50 rounded-lg overflow-hidden flex-shrink-0">
-                      <Image
+                      <ShopifyImage
                         src={item.product.image}
                         alt={item.product.name}
-                        width={80}
-                        height={80}
+                        square
+                        widths={[80, 160, 240]}
+                        sizes="80px"
                         className="w-full h-full object-cover object-center"
                       />
                     </div>

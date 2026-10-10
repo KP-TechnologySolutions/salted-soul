@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
+import ShopifyImage from '@/components/ui/ShopifyImage'
 import { Product } from '@/types/product'
 import { useCart } from '@/lib/cart-context'
 import Button from '@/components/ui/Button'
@@ -83,11 +83,13 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
         <div className="space-y-4">
           {/* Main Image */}
           <div className="aspect-square bg-gray-50 rounded-2xl overflow-hidden">
-            <Image
+            <ShopifyImage
+              key={product.images[selectedImage].url}
               src={product.images[selectedImage].url}
               alt={product.images[selectedImage].altText}
-              width={600}
-              height={600}
+              square
+              widths={[400, 600, 800, 1000, 1200]}
+              sizes="(max-width: 1023px) calc(100vw - 30px), 560px"
               className="w-full h-full object-cover object-center"
               priority
             />
@@ -104,11 +106,12 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
                     selectedImage === index ? 'border-ocean-500' : 'border-transparent hover:border-gray-300'
                   }`}
                 >
-                  <Image
+                  <ShopifyImage
                     src={image.url}
                     alt={image.altText}
-                    width={150}
-                    height={150}
+                    square
+                    widths={[150, 300]}
+                    sizes="(max-width: 1023px) 25vw, 130px"
                     className="w-full h-full object-cover object-center"
                   />
                 </button>
@@ -151,9 +154,9 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
               .filter(([optionName, optionValues]) => !(optionName === 'Title' && optionValues.size === 1 && optionValues.has('Default Title')))
               .map(([optionName, optionValues]) => (
               <div key={optionName}>
-                <h3 className="text-lg font-semibold text-charcoal-900 mb-3">
+                <h2 className="text-lg font-semibold text-charcoal-900 mb-3">
                   {optionName}: <span className="font-normal">{getSelectedOptions()[optionName]}</span>
-                </h3>
+                </h2>
                 <div className="flex flex-wrap gap-3">
                   {Array.from(optionValues).map((value) => {
                     const currentOptions = getSelectedOptions()
@@ -243,7 +246,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
 
           {/* Product Features */}
           <div className="border-t pt-8">
-            <h3 className="text-lg font-semibold text-charcoal-900 mb-4">Product Features</h3>
+            <h2 className="text-lg font-semibold text-charcoal-900 mb-4">Product Features</h2>
             <ul className="space-y-2 text-charcoal-600">
               {[
                 'Authentic Richardson 112 trucker hat',
@@ -265,7 +268,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
           {/* Tags */}
           {product.tags.length > 0 && (
             <div className="border-t pt-8">
-              <h3 className="text-lg font-semibold text-charcoal-900 mb-4">Tags</h3>
+              <h2 className="text-lg font-semibold text-charcoal-900 mb-4">Tags</h2>
               <div className="flex flex-wrap gap-2">
                 {product.tags.map((tag) => (
                   <span

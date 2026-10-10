@@ -3,7 +3,35 @@ import { pageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { getPostSlugs, getPostBySlug, formatDate } from '@/lib/posts'
+import { getPostSlugs, getPostBySlug, formatDate, type Post } from '@/lib/posts'
+import { JsonLd, breadcrumbJsonLd, SITE } from '@/lib/jsonld'
+
+// Posts carry no named author in their frontmatter or text (they are written
+// as "we", the brand), so author and publisher are the Salted Soul organization.
+function blogPostingJsonLd(post: Post) {
+  const url = `${SITE}/seasoned/${post.slug}/`
+  const org = {
+    '@type': 'Organization',
+    name: 'Salted Soul',
+    url: SITE,
+    logo: { '@type': 'ImageObject', url: `${SITE}/salted_soul_logo.webp` },
+  }
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: org,
+    publisher: org,
+    image: [`${SITE}${post.coverImage}`],
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    url,
+    keywords: post.keywords.join(', '),
+    isPartOf: { '@type': 'Blog', name: 'Seasoned', url: `${SITE}/seasoned/` },
+  }
+}
 
 interface Params {
   params: Promise<{ slug: string }>
@@ -34,6 +62,13 @@ export default async function PostPage({ params }: Params) {
 
   return (
     <div className="min-h-screen bg-white">
+      <JsonLd data={blogPostingJsonLd(post)} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          ['Seasoned', '/seasoned/'],
+          [post.title, `/seasoned/${post.slug}/`],
+        ])}
+      />
       <article>
         {/* Title */}
         <header className="bg-gradient-sand pt-16 pb-20">

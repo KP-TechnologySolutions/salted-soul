@@ -9,6 +9,13 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.saltedsoulsc\.com$ [NC]
 RewriteRule ^(.*)$ https://saltedsoulsc.com/$1 [R=301,L]
 
+# /index.html (and any /path/index.html) -> the directory URL, one 301 hop.
+# Matches THE_REQUEST (what the client actually asked for), NOT the rewritten
+# path: Apache's DirectoryIndex serves / internally as /index.html, so a
+# RedirectMatch/RewriteRule on the path alone would loop the homepage forever.
+RewriteCond %{THE_REQUEST} ^[A-Z]+\s/+((?:[^\s?]*/)?)index\.html[\s?] [NC]
+RewriteRule ^ https://saltedsoulsc.com/%1 [R=301,L]
+
 # Retired pages (no sales data behind "best sellers" / "new arrivals")
 RewriteRule ^shop/(best-sellers|new-arrivals)/?$ /shop/hats/ [R=301,L]
 
@@ -20,4 +27,22 @@ RewriteRule ^shop/(best-sellers|new-arrivals)/?$ /shop/hats/ [R=301,L]
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Content-Security-Policy "frame-ancestors 'self'"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), usb=()"
+  # HSTS: apex only (no includeSubDomains / preload: not every subdomain is
+  # confirmed HTTPS). Browsers ignore this header on plain-HTTP responses.
+  Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# Responsive image ladder (scripts/derive-images.mjs). Apache's mime.types
+# often lacks AVIF; without this it is served with no Content-Type.
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType image/webp .webp
+</IfModule>
+
+# Content-hashed files never change at the same URL: cache for a year.
+# /img/ names carry a source hash; /_next/static/ names carry a build hash.
+<IfModule mod_headers.c>
+  <If "%{REQUEST_URI} =~ m#^/(img|_next/static)/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
 </IfModule>

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import Picture from '@/components/ui/Picture'
 import { ShoppingBag } from 'lucide-react'
 import { useCart } from '@/lib/cart-context'
 import CartDrawer from '@/components/cart/CartDrawer'
@@ -26,13 +26,8 @@ export default function SimpleHeader() {
         {/* Logo */}
         <Link href="/" className="logo" onClick={() => setOpen(false)}>
           <div className="logo-image">
-            <Image
-              src="/salted_soul_logo.webp"
-              alt="Salted Soul"
-              width={60}
-              height={60}
-              style={{ width: 'auto', height: '60px' }}
-            />
+            {/* alt="": the link already says "Salted Soul" (wordmark). */}
+            <Picture name="logo" alt="" sizes="60px" eager style={{ width: 'auto', height: '60px' }} />
           </div>
           {/* Not an <h1>: each page has its own single H1. */}
           <div className="logo-text">

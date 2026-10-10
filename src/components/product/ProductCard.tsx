@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
+import ShopifyImage from '@/components/ui/ShopifyImage'
 import Link from 'next/link'
 import { cn, generateId } from '@/lib/utils'
 import { Product } from '@/types/product'
@@ -9,6 +9,10 @@ import { useCart } from '@/lib/cart-context'
 import Badge from '@/components/ui/Badge'
 import PriceDisplay from '@/components/ui/PriceDisplay'
 import Button from '@/components/ui/Button'
+
+// Grid: 1 col < md, 2 < lg, 3 < xl, then 4 (ProductGrid).
+const CARD_SIZES =
+  '(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 50vw, (max-width: 1279px) 33vw, 290px'
 
 export interface ProductCardProps {
   product: Product
@@ -61,22 +65,24 @@ const ProductCard: React.FC<ProductCardProps> = ({
         {/* Product Image */}
         <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-50 mb-4">
           {/* Primary Image */}
-          <Image
+          <ShopifyImage
             src={primaryImage.url}
             alt={primaryImage.altText}
-            fill
-            className="object-cover object-center transition-opacity duration-300 group-hover:opacity-0"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            square
+            widths={[300, 400, 600, 800]}
+            className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-300 group-hover:opacity-0"
+            sizes={CARD_SIZES}
           />
           
           {/* Secondary Image for Hover Effect */}
           {secondaryImage && (
-            <Image
+            <ShopifyImage
               src={secondaryImage.url}
               alt={secondaryImage.altText}
-              fill
-              className="object-cover object-center transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              square
+              widths={[300, 400, 600, 800]}
+              className="absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+              sizes={CARD_SIZES}
             />
           )}
 
